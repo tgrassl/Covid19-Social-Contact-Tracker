@@ -1,0 +1,7 @@
+{
+  "name": "social-contact-tracking",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

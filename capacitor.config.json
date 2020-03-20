@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "social-contact-tracking",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
