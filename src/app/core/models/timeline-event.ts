@@ -1,13 +1,15 @@
+import { Contact } from './contact.model';
 import {Moment} from 'moment';
 
 export interface TimelineEvent {
     type: TimelineEventType;
     timestamp: Moment;
-    from?: Moment;
-    to?: Moment;
+    from?: string;
+    to?: string;
     content?: string;
     directContacts?: number;
     indirectContacts?: number;
+    contacts?: Contact[];
 }
 
 export enum TimelineEventType {

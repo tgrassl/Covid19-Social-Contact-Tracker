@@ -1,3 +1,28 @@
-<p>
-  timeline works!
-</p>
+<div *ngIf="(timeline$ | async) as timeline">
+  <ion-virtual-scroll [items]="timeline" class="timeline">
+    <div *virtualItem="let item">
+      <div class="timeline__container" [ngClass]="getDotClass(item.type)">
+        <ng-container [ngSwitch]="true">
+          <ng-container  *ngSwitchCase="isCheckIn(item.type)">
+            <app-checks [event]="item" [checkIn]="true"></app-checks>
+          </ng-container>
+          <ng-container *ngSwitchCase="isCheckOut(item.type)">
+            <app-checks [event]="item" [checkIn]="false"></app-checks>
+          </ng-container>
+          <ng-container *ngSwitchCase="isTravel(item.type)">
+            <app-travel [event]="item"></app-travel>
+          </ng-container>
+          <ng-container *ngSwitchCase="isActivity(item.type)">
+            <app-activity [event]="item"></app-activity>
+          </ng-container>
+          <ng-container *ngSwitchCase="isNote(item.type)">
+            
+          </ng-container>
+          <ng-container *ngSwitchCase="isContact(item.type)">
+            <app-contact [event]="item"></app-contact>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ion-virtual-scroll>
+</div>

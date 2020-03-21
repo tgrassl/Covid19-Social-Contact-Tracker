@@ -1,1 +1,5 @@
 @import "colors";
+
+p, h2, h1, h3 {
+    color: var(--text-color);
+}

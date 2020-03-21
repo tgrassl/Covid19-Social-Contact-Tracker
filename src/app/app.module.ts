@@ -19,7 +19,9 @@ import { CoreModule } from './core/core.module';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      mode: 'md'
+    }),
     AppRoutingModule,
     CoreModule,
     NgxsModule.forRoot([AppState]),

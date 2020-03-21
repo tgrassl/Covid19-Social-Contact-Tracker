@@ -21,6 +21,11 @@ ion-badge {
   min-height: 16px;
 }
 
+ion-avatar {
+  border: 2px solid white;
+  margin-left: -10px;
+}
+
 ion-toggle {
   --background-checked: var(--ion-color-primary-tint);
 }
