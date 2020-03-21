@@ -1,4 +1,5 @@
-import { ModalController } from '@ionic/angular';
+import { PhoneContact } from './../../../core/models/phone-contact.model';
+import { ModalController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,22 +9,84 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactSelectComponent implements OnInit {
 
-  constructor(private modalCtrl: ModalController) { }
+  public contactsList: PhoneContact[] = [];
+  constructor(private modalCtrl: ModalController, private platform: Platform) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.platform.is('cordova')) {
+      (window as any).navigator.contactsPhoneNumbers.list(
+        (contacts: PhoneContact[]) => {
+          this.contactsList = contacts;
+      },
+      (error) => {
+        console.log(error);
+      });
+    } else {
+      this.contactsList = [{
+        id: '1',
+        firstName: 'Kate',
+        middleName: '',
+        lastName: 'Bell',
+        displayName: 'Kate Bell',
+        thumbnail: null,
+        phoneNumbers: [{
+            number: '(555) 564-8583',
+            normalizedNumber: '(555) 564-8583',
+            type: 'MOBILE'
+        }, {
+            number: '(415) 555-3695',
+            normalizedNumber: '(415) 555-3695',
+            type: 'OTHER'
+        }]
+    }, {
+        id: '2',
+        firstName: 'Daniel',
+        middleName: '',
+        lastName: 'Higgins',
+        displayName: 'Daniel Higgins',
+        thumbnail: null,
+        phoneNumbers: [{
+            number: '555-478-7672',
+            normalizedNumber: '555-478-7672',
+            type: 'HOME'
+        }, {
+            number: '(408) 555-5270',
+            normalizedNumber: '(408) 555-5270',
+            type: 'MOBILE'
+        }, {
+            number: '(408) 555-3514',
+            normalizedNumber: '(408) 555-3514',
+            type: 'OTHER'
+        }]
+    }, {
+        id: '3',
+        firstName: 'John',
+        middleName: 'Paul',
+        lastName: 'Appleseed',
+        displayName: 'John Paul Appleseed',
+        thumbnail: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
+        phoneNumbers: [{
+            number: '888-555-5512',
+            normalizedNumber: '888-555-5512',
+            type: 'MOBILE'
+        }, {
+            number: '888-555-1212',
+            normalizedNumber: '888-555-1212',
+            type: 'HOME'
+        }]
+    }];
+    }
+
+  }
 
   public dismiss() {
     this.modalCtrl.dismiss({
-      'dismissed': true
+      dismissed: true,
+      selectedContacts: this.getSelectedContacts()
     });
   }
 
-  public getContacts() {
-    return [
-      { val: 'Pepperoni', isChecked: true, img: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg' },
-      { val: 'Sausage', isChecked: false },
-      { val: 'Mushroom', isChecked: false }
-    ];
+  private getSelectedContacts() {
+    return this.contactsList.filter((contact: PhoneContact) => contact.isSelected);
   }
-
 }

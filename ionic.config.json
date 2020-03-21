@@ -1,7 +1,8 @@
 {
   "name": "social-contact-tracking",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
