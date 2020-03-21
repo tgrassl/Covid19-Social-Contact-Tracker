@@ -1,8 +1,0 @@
-{
-  "appId": "com.tgrassl.socialContractTracker",
-  "appName": "SocialContactTracker",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "cordova": {}
-}

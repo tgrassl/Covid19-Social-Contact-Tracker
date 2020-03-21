@@ -32,14 +32,14 @@ export interface EntityStateModel {
         directContacts: 2,
         contacts: [
           {
-            phoneNumber: '300202',
-            shortName: 'Alex',
-            image: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg'
+            phoneNumbers: null,
+            displayName: 'Alex',
+            thumbnail: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg'
           },
           {
-            phoneNumber: '300202',
-            shortName: 'Anna',
-            image: 'https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e'
+            phoneNumbers: null,
+            displayName: 'Anna',
+            thumbnail: 'https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e'
           }
         ]
       },

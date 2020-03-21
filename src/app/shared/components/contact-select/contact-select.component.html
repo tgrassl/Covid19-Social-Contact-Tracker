@@ -28,7 +28,8 @@
   <ion-list *ngIf="contactsList">
     <ion-item *ngFor="let contact of contactsList">
       <ion-avatar slot="start">
-        <img [src]="contact.thumbnail">
+        <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
+        <img [src]="contact.thumbnail" *ngIf="contact.thumbnail">
       </ion-avatar>
       <ion-label>{{contact.displayName}}</ion-label>
       <ion-checkbox slot="end" [(ngModel)]="contact.isSelected"></ion-checkbox>

@@ -1,5 +1,5 @@
-import { Contact } from './contact.model';
-import {Moment} from 'moment';
+import { Moment } from 'moment';
+import { PhoneContact } from './phone-contact.model';
 
 export interface TimelineEvent {
     type: TimelineEventType;
@@ -9,7 +9,7 @@ export interface TimelineEvent {
     content?: string;
     directContacts?: number;
     indirectContacts?: number;
-    contacts?: Contact[];
+    contacts?: PhoneContact[];
     transportType?: TransportType;
 }
 

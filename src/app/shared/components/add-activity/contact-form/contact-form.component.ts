@@ -22,9 +22,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
     this.contactFormGroup = new FormGroup({
       from: new FormControl('', Validators.required),
-      to: new FormControl('', Validators.required),
-      transportType: new FormControl('', Validators.required),
-      indirectContacts: new FormControl('', Validators.required),
+      contacts: new FormControl('', Validators.required),
     });
   }
 
@@ -34,6 +32,7 @@ export class ContactFormComponent implements OnInit {
     });
     modal.onWillDismiss().then(event => {
       console.log(event.data);
+      this.contactFormGroup.controls.contacts.setValue(event.data.selectedContacts);
     });
     return await modal.present();
   }

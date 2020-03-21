@@ -1,5 +1,5 @@
+import { Component, Input } from '@angular/core';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
-import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +13,7 @@ export class ContactComponent {
 
   public getContactName(): string {
     const firstContact = this.event.contacts[0];
-    return firstContact.shortName ? firstContact.shortName : firstContact.firstName + ' ' + firstContact.lastName;
+    return firstContact.displayName ? firstContact.displayName : firstContact.firstName + ' ' + firstContact.lastName;
   }
 
   public getContactAvatars() {

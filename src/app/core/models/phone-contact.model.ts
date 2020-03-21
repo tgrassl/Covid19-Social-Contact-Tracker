@@ -1,11 +1,11 @@
 export interface PhoneContact {
-    id: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
+    id?: string;
+    firstName?: string;
+    middleName?: string;
+    lastName?: string;
     displayName: string;
-    thumbnail: string;
-    phoneNumbers: PhoneContactNumber[];
+    thumbnail?: string;
+    phoneNumbers?: PhoneContactNumber[];
     isSelected?: boolean;
 }
 
