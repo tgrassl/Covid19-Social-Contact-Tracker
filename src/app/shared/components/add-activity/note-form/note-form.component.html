@@ -1,0 +1,12 @@
+<form [formGroup]="noteFormGroup">
+  <ion-item>
+    <ion-label position="stacked">Notiz</ion-label>
+    <ion-textarea placeholder="Notiz hier eingeben..." [autoGrow]="true" maxlength="255" formControlName="content"></ion-textarea>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="noteFormGroup.valid" (click)="submitForm()">
+    <ion-fab-button>
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</form>
