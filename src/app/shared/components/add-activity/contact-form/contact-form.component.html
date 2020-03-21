@@ -1,0 +1,23 @@
+<form [formGroup]="contactFormGroup">
+  <ion-item>
+    <ion-label position="stacked">Welche Kontake?</ion-label>
+    <ion-text slot="end" (click)="showContactSelect()">
+      Kontakt auswählen
+    </ion-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Uhrzeit</ion-label>
+    <ion-datetime 
+    displayFormat="HH:mm"
+    placeholder="Zeit wählen" 
+    cancelText="Abbrechen" 
+    doneText="Fertig" formControlName="from"></ion-datetime>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="contactFormGroup.valid" (click)="submitForm()">
+    <ion-fab-button>
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</form>

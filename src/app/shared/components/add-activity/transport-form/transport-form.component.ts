@@ -25,8 +25,6 @@ export class TransportFormComponent implements OnInit {
       transportType: new FormControl('', Validators.required),
       indirectContacts: new FormControl('', Validators.required),
     });
-
-    console.log(this.transportTypes);
   }
 
   public submitForm(): void {

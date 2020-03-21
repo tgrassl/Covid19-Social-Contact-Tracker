@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="contact-select">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Kontakte auswählen</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="primary">
+        Fertig
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let entry of getContacts()">
+      <ion-avatar>
+        <ion-img [src]="entry.img"></ion-img>
+      </ion-avatar>
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
