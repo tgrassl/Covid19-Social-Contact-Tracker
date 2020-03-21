@@ -1,0 +1,18 @@
+ion-avatar {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    margin-left: -10px;
+}
+
+.activity-toolbar {
+    &__active {
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

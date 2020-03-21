@@ -1,0 +1,56 @@
+<ion-header translucent="true" no-border class="img-feed-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="secondary" (click)="closeImageFeed()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center class="img-feed__title">
+      Swipe for more <ion-icon class="arrow-anim" name="arrow-forward"></ion-icon>
+    </ion-title>
+    <ion-buttons slot="end" >
+      <ion-button color="secondary">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-slides [options]="slideOpts" no-margin class="p-l-20 p-r-20">
+  <ion-slide *ngFor="let image of images" class="img-post">
+    <!--<ion-img class="img-post" [src]="image"></ion-img>-->
+    <ion-grid class="img-post-details" (click)="openPostDetails()">
+      <ion-row>
+        <ion-col size="1">
+          <ion-avatar class="img-post-details__avatar">
+            <img onerror="style.display = 'none'" src="https://randomuser.me/api/portraits/women/90.jpg">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="6" class="p-l-20">
+          <ion-text class="img-post-details__name" float-start>Name</ion-text>
+        </ion-col>
+        <ion-col size="2">
+          <div class="img-post-details__time" text-center float-end>
+            <ion-icon name="time"></ion-icon>
+            <ion-text>2h</ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="img-post-details__reactions" text-center float-end>
+            <ion-icon name="ios-chatboxes"></ion-icon>
+            <ion-text>999</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="img-post__img" [ngStyle]="{'background-image': 'url(' + image +')'}"></div>
+    <ion-button fill="solid" slot="icon-only" shape="round" class="img-post__react" (click)="reactToImage()">
+      <ion-icon src="assets/svg/noun-bee.svg"></ion-icon>
+    </ion-button>
+    <ion-button fill="solid" shape="round" class="img-post__likes" (click)="likeImage()">
+      <ion-icon slot="start" src="assets/svg/noun-honey.svg"></ion-icon>
+      125
+    </ion-button>
+  </ion-slide>
+</ion-slides>
+

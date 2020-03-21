@@ -1,1 +1,29 @@
+.tab--center {
+    outline: none;
+  
+    a {
+      $add-size: 40px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 100%;
+      height: $add-size;
+      width: $add-size;
+    }
+  
+    &__icon {
+      font-size: 25px;
+      margin-top: 8px;
+      color: white;
+    }
+}
 
+ion-tab-button {
+    --color: var(--dark-grey);
+    transition: transform 0.1s ease-in;
+}
+
+ion-tab-bar {
+    --background: var(--light-grey);
+    --border: 1px solid var(--light-grey-2);
+    min-height: 65px;
+}

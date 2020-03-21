@@ -1,0 +1,24 @@
+// Customisable spacing units. these can be changed and new ones added
+$spacing-units: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50);
+
+// These will not change this is just to help generate the classes with the correct naming
+$spacing-naming: (
+        top: t,
+        right: r,
+        bottom: b,
+        left: l,
+);
+
+@each $spacing in $spacing-units {
+
+  @each $keyq, $valueq in $spacing-naming {
+    .m-#{$valueq}-#{$spacing} {
+      margin-#{$keyq}: $spacing + unquote("px");
+    }
+  }
+  @each $keyq, $valueq in $spacing-naming {
+    .p-#{$valueq}-#{$spacing} {
+      padding-#{$keyq}: $spacing + unquote("px");
+    }
+  }
+}

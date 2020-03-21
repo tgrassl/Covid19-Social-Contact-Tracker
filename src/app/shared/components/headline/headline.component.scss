@@ -1,0 +1,22 @@
+.headline {
+  background-color: var(--headline-background);
+  padding: 5px 15px 5px 15px;
+
+  &__title {
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--headline-text);
+  }
+}
+
+.headline-big {
+  background-color: white;
+  padding: 10px 15px 10px 15px;
+
+  &__title {
+    font-size: 16px;
+    color: var(--dark-grey-2);
+  }
+}
+
