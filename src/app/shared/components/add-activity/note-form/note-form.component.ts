@@ -28,6 +28,7 @@ export class NoteFormComponent implements OnInit {
       newEvent.type = TimelineEventType.note;
       newEvent.timestamp = moment();
       this.submitted.emit(newEvent);
+      this.noteFormGroup.reset();
     }
   }
 }

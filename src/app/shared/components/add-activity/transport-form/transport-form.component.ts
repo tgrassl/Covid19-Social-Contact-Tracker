@@ -35,6 +35,7 @@ export class TransportFormComponent implements OnInit {
       newEvent.from = moment(newEvent.from).format('HH:mm');
       newEvent.to = moment(newEvent.to).format('HH:mm');
       this.submitted.emit(newEvent);
+      this.transportFormGroup.reset();
     }
   }
 }

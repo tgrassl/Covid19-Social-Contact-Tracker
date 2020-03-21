@@ -45,6 +45,7 @@ export class ContactFormComponent implements OnInit {
       newEvent.timestamp = moment();
       newEvent.from = moment(newEvent.from).format('HH:mm');
       this.submitted.emit(newEvent);
+      this.contactFormGroup.reset();
     }
   }
 
