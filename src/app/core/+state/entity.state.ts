@@ -1,5 +1,5 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { TimelineEvent, TimelineEventType } from '../models/timeline-event';
+import { TimelineEvent, TimelineEventType, TransportType } from '../models/timeline-event';
 import { MedicalStatus } from './../models/medical-status';
 import { AddTimelineEvent, CheckIn, CheckOut } from './entity.actions';
 import * as moment from 'moment';
@@ -18,7 +18,8 @@ export interface EntityStateModel {
         timestamp: moment('2020-03-02'),
         from: '12:00',
         to: '12:30',
-        indirectContacts: 8
+        indirectContacts: 12,
+        transportType: TransportType.train
       },
       {
         type: TimelineEventType.checkIn,

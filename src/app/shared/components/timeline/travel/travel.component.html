@@ -1,4 +1,14 @@
-<div class="timeline__content timeline__content--grey">
-  <h2>2016</h2>
-  <p>Lorem ipsum..</p>
+<div class="timeline__content timeline__content--grey travel">
+  <div class="travel__title">
+    Mit dem <span>{{event.transportType}}</span> unterwegs
+  </div>
+  <div class="travel__time">
+    <ion-icon name="time"></ion-icon>
+    <span><b>{{event.from}} - {{event.to}} Uhr</b></span>
+  </div>
+
+  <div class="travel__contacts">
+    <ion-icon name="people"></ion-icon>
+    <span>Mit ca. <b>{{event.indirectContacts}}</b> Personen in Kontakt</span>
+  </div>
 </div>

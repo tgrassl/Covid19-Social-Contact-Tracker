@@ -10,6 +10,7 @@ export interface TimelineEvent {
     directContacts?: number;
     indirectContacts?: number;
     contacts?: Contact[];
+    transportType?: TransportType;
 }
 
 export enum TimelineEventType {
@@ -19,4 +20,10 @@ export enum TimelineEventType {
     contact = 'contact',
     note = 'note',
     activity = 'activity',
+}
+
+export enum TransportType {
+    bus = 'Bus',
+    train = 'Zug',
+    car = 'Auto'
 }
