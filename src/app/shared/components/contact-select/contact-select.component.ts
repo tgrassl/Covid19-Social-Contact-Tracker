@@ -91,7 +91,7 @@ export class ContactSelectComponent implements OnInit {
   private cleanUpContacts(contacts): PhoneContact[] {
     return [...contacts].map(contact => {
       if (!contact.thumbnail) {
-        contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}+${contact.lastName}&background=3399FF&color=fff`;
+        contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}&background=3399FF&color=fff`;
       }
 
       if (contact.thumbnail.startsWith('content')) {
