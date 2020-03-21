@@ -1,0 +1,36 @@
+<form [formGroup]="transportFormGroup">
+  <ion-item>
+    <ion-label position="stacked">Wie viele Mitfahrer?</ion-label>
+    <ion-input type="number" min="0" placeholder="Anzahl indirekter Kontakte" formControlName="indirectContacts"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Art des Transportmittels</ion-label>
+    <ion-select placeholder="Auswählen" formControlName="transportType">
+      <ion-select-option [value]="type.value" *ngFor="let type of transportTypes | keyvalue">{{type.value}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Von</ion-label>
+    <ion-datetime 
+    displayFormat="HH:mm"
+    placeholder="Zeit wählen" 
+    cancelText="Abbrechen" 
+    doneText="Fertig" formControlName="from"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Bis</ion-label>
+    <ion-datetime 
+    displayFormat="HH:mm" 
+    placeholder="Zeit wählen" 
+    cancelText="Abbrechen"
+    formControlName="to"
+    doneText="Fertig"></ion-datetime>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="transportFormGroup.valid" (click)="submitForm()">
+    <ion-fab-button>
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</form>

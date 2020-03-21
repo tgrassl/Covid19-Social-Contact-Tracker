@@ -1,11 +1,9 @@
-import { Moment } from 'moment';
-import { TimelineEventType } from './../../../core/models/timeline-event';
-import { Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { EntityState } from './../../../core/+state/entity.state';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TimelineEvent } from 'src/app/core/models/timeline-event';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import * as moment from 'moment';
+import 'moment/locale/de';
+import { Moment } from 'moment';
+import { TimelineEvent } from 'src/app/core/models/timeline-event';
+import { TimelineEventType } from './../../../core/models/timeline-event';
 
 @Component({
   selector: 'app-timeline',
@@ -15,7 +13,7 @@ import * as moment from 'moment';
 })
 export class TimelineComponent implements OnInit {
 
-  @Select(EntityState.timeline) timeline$: Observable<TimelineEvent[]>;
+  @Input() timeline: TimelineEvent[];
 
   private dotColorMap = {
     checkIn: 'blue',
@@ -31,7 +29,6 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {}
 
-
   public getDotClass(type: TimelineEventType): string {
     return 'timeline__container--' + this.dotColorMap[type];
   }
@@ -45,7 +42,7 @@ export class TimelineComponent implements OnInit {
     const previousEvent = timeline[itemIndex - 1];
 
     if (previousEvent) {
-      return previousEvent.timestamp.isBefore(item.timestamp, 'day');
+      return moment(previousEvent.timestamp).isBefore(moment(item.timestamp), 'day');
     } else {
       return true;
     }
@@ -53,7 +50,7 @@ export class TimelineComponent implements OnInit {
 
   public getDateFormat(day: Moment): string {
     const isToday = moment(day).isSame(moment(), 'day');
-    return isToday ? 'Heute' : day.locale('de').format('ll');
+    return isToday ? 'Heute' : moment(day).locale('de').format('ll');
   }
 
   public isCheckIn(type: TimelineEventType): boolean {

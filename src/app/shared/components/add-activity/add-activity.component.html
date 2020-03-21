@@ -21,13 +21,13 @@
   <div class="add-activity__content">
     <ng-container [ngSwitch]="true">
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.transport">
-        <app-transport-form ></app-transport-form>
+        <app-transport-form (submitted)="handleSubmit($event)"></app-transport-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.contact">
         <app-contact-form></app-contact-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.note">
-        <app-note-form></app-note-form>
+        <app-note-form (submitted)="handleSubmit($event)"></app-note-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.activity">
         <app-activity-form (submitted)="handleSubmit($event)"></app-activity-form>

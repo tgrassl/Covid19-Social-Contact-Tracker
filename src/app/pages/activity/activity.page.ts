@@ -33,7 +33,6 @@ export class ActivityPage implements AfterViewInit, OnDestroy{
   scrollToBottom() {
     setTimeout(() => {
       if (this.content.scrollToBottom) {
-        console.log('scroll');
         this.content.scrollToBottom(0);
       }
     }, 500);

@@ -18,6 +18,6 @@ export class ChecksComponent {
   }
 
   public getCheckIcon(): string {
-    return this.checkIn ? 'home-sharp' : 'exit';
+    return this.checkIn ? 'home-sharp' : 'log-out';
   }
 }

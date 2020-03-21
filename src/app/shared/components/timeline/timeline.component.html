@@ -1,4 +1,4 @@
-<div *ngIf="(timeline$ | async) as timeline">
+<div *ngIf="timeline">
   <ion-virtual-scroll [items]="timeline" class="timeline" approxItemHeight="300px">
     <div *virtualItem="let item; let itemBounds = bounds">
       <div class="timeline__day" *ngIf="isNewDay(timeline, item)">
