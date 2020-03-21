@@ -16,7 +16,6 @@
   &__disease {
     padding: 1rem;
     color: white;
-    margin-bottom: 10px;
     transition: opacity .1s ease-in;
 
     ion-icon {
@@ -46,14 +45,19 @@
         --color-selected: var(--primary)
     }
   }
+}
 
-  ion-item > ion-label {
-    transform: none;
-    font-weight: bold;
-  }
+.label-floating.sc-ion-label-md-h, .label-stacked.sc-ion-label-md-h {
+  transform: none;
+  font-weight: bold;
+}
 
-  ion-datetime {
-    width: 100%;
-    text-align: end;
-  }
+ion-datetime {
+  width: 100%;
+  text-align: end;
+}
+
+ion-fab-button {
+  --background: var(--primary);
+  margin-bottom: 85px;
 }

@@ -1,17 +1,17 @@
 <app-bottom-sheet #bottomSheet title="Aktivität erfassen" class="add-activity">
-  <ion-grid>
+  <ion-grid class="m-b-20">
     <ion-row>
-      <ion-col class="add-activity__disease">
+      <ion-col class="add-activity__disease" (click)="diseaseDetected()">
         <ion-icon name="fitness-outline"></ion-icon>
         <span>Krankheit festgestellt</span>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="6" class="add-activity__check-in">
-        <ion-icon name="log-in-outline"></ion-icon>
+      <ion-col size="6" class="add-activity__check-in" (click)="checkIn()">
+        <ion-icon name="home-outline"></ion-icon>
         <span>Check In</span>
       </ion-col>
-      <ion-col size="6" class="add-activity__check-out">
+      <ion-col size="6" class="add-activity__check-out" (click)="checkOut()">
         <ion-icon name="log-out-outline"></ion-icon>
         <span>Check Out</span>
       </ion-col>
@@ -21,7 +21,7 @@
   <div class="add-activity__content">
     <ng-container [ngSwitch]="true">
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.transport">
-        <app-transport-form></app-transport-form>
+        <app-transport-form ></app-transport-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.contact">
         <app-contact-form></app-contact-form>
@@ -30,7 +30,7 @@
         <app-note-form></app-note-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.activity">
-        <app-activity-form></app-activity-form>
+        <app-activity-form (submitted)="handleSubmit($event)"></app-activity-form>
       </ng-container>
     </ng-container>
   </div>
