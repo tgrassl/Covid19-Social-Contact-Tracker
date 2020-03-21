@@ -1,3 +1,14 @@
-<p>
-  bottom-sheet works!
-</p>
+<div class="bottom-sheet-bg-overlay" *ngIf="flags.isBottomSheetEnabled" (click)="close()"></div>
+<div class="bottom-sheet-container" *ngIf="flags.isBottomSheetEnabled" [@slideUpToggle]>
+  <div>
+    <div class="bottom-sheet-header">
+      <div class="bottom-sheet-header__close" (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </div>
+      <h4 class="bottom-sheet-header__title">{{title}}</h4>
+    </div>
+    <div class="bottom-sheet-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

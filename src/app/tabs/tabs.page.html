@@ -6,12 +6,12 @@
       <ion-label>Aktivität</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button class="tab--center md ion-activatable hydrated" routerLink="/new-post">
-      <a>
+    <ion-tab-button class="tab--center">
+      <button (click)="addActivitySheet.openBottomSheet()">
         <slot>
-          <ion-icon class="tab--center__icon" name="add"></ion-icon>
+          <ion-icon class="tab--center__icon" name="add-circle-outline"></ion-icon>
         </slot>
-      </a>
+      </button>
     </ion-tab-button>
 
     <ion-tab-button tab="settings">
@@ -21,3 +21,5 @@
   </ion-tab-bar>
 
 </ion-tabs>
+
+<app-add-activity #addActivity></app-add-activity>

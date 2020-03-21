@@ -1,0 +1,64 @@
+.bottom-sheet-bg-overlay {
+  background: rgba(0, 0, 0, 0.32);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bottom-sheet-container {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 18px 18px 0px 0;
+  min-height: 600px;
+  z-index: 4;
+  color: #363636;
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.bottom-sheet-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 16px;
+  display: flex;
+
+  &__close {
+    background-color: var(--light-grey-2);
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+
+    ion-icon {
+        vertical-align: -5px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0;
+    font-size: 1rem;
+    flex-grow: 1;
+    text-align: center;
+    align-self: center;
+  }
+}
+
+.bottom-sheet-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bdbdbd;
+}

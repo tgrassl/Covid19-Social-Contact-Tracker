@@ -1,8 +1,8 @@
 .tab--center {
     outline: none;
   
-    a {
-      $add-size: 40px;
+    button {
+      $add-size: 50px;
       background-color: var(--primary);
       color: white;
       border-radius: 100%;
@@ -11,8 +11,8 @@
     }
   
     &__icon {
-      font-size: 25px;
-      margin-top: 8px;
+      font-size: 32px;
+      margin-top: 2px;
       color: white;
     }
 }

@@ -1,0 +1,70 @@
+<app-bottom-sheet #bottomSheet title="Aktivität erfassen" class="add-activity">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="add-activity__disease">
+        <ion-icon name="fitness-outline"></ion-icon>
+        <span>Krankheit festgestellt</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="add-activity__check-in">
+        <ion-icon name="log-in-outline"></ion-icon>
+        <span>Check In</span>
+      </ion-col>
+      <ion-col size="6" class="add-activity__check-out">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <span>Check Out</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="add-activity__content">
+    <ng-container [ngSwitch]="true">
+      <ng-container *ngSwitchCase="selectedTab === addActivityTabs.transport">
+        <app-transport-form></app-transport-form>
+      </ng-container>
+      <ng-container *ngSwitchCase="selectedTab === addActivityTabs.contact">
+        <app-contact-form></app-contact-form>
+      </ng-container>
+      <ng-container *ngSwitchCase="selectedTab === addActivityTabs.note">
+        <app-note-form></app-note-form>
+      </ng-container>
+      <ng-container *ngSwitchCase="selectedTab === addActivityTabs.activity">
+        <app-activity-form></app-activity-form>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div class="add-activity__footer">
+      <ion-tab-bar>
+        <ion-tab-button 
+        [selected]="selectedTab === addActivityTabs.transport"
+        (click)="selectTab(addActivityTabs.transport)">
+          <ion-icon name="car-outline"></ion-icon>
+          <ion-label>Unterwegs</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button 
+        [selected]="selectedTab === addActivityTabs.contact" 
+        (click)="selectTab(addActivityTabs.contact)">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Kontakt</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button 
+        [selected]="selectedTab === addActivityTabs.note"
+        (click)="selectTab(addActivityTabs.note)">
+          <ion-icon name="pencil-sharp"></ion-icon>
+          <ion-label>Notiz</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button 
+        [selected]="selectedTab === addActivityTabs.activity"
+        (click)="selectTab(addActivityTabs.activity)">
+          <ion-icon name="analytics"></ion-icon>
+          <ion-label>Aktivität</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+  </div>
+
+</app-bottom-sheet>

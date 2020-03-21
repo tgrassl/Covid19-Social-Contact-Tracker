@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { PagesModule } from './../pages/pages.module';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,8 @@ import { TabsPage } from './tabs.page';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    PagesModule
+    PagesModule,
+    SharedModule
   ],
   declarations: [TabsPage]
 })
