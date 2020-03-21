@@ -1,8 +1,8 @@
 <form [formGroup]="contactFormGroup">
   <ion-item>
-    <ion-label position="stacked">Welche Kontake?</ion-label>
+    <ion-label>Welche Kontake?</ion-label>
     <ion-text slot="end" (click)="showContactSelect()">
-      Kontakt auswählen
+      {{getContactText()}}
     </ion-text>
   </ion-item>
 

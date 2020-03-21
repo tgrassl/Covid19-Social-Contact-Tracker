@@ -47,4 +47,9 @@ export class ContactFormComponent implements OnInit {
       this.submitted.emit(newEvent);
     }
   }
+
+  public getContactText(): string {
+    const contactFieldValue = this.contactFormGroup.value.contacts;
+    return contactFieldValue.length > 0 ? (contactFieldValue.length + 1) + 'Kontakte' : 'Kontakte auswählen';
+  }
 }
