@@ -1,6 +1,9 @@
 <div *ngIf="(timeline$ | async) as timeline">
   <ion-virtual-scroll [items]="timeline" class="timeline">
     <div *virtualItem="let item">
+      <div class="timeline__day" *ngIf="isNewDay(timeline, item)">
+        {{getDateFormat(item.timestamp)}}
+      </div>
       <div class="timeline__container" [ngClass]="getDotClass(item.type)">
         <ng-container [ngSwitch]="true">
           <ng-container  *ngSwitchCase="isCheckIn(item.type)">

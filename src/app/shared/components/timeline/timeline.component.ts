@@ -1,9 +1,11 @@
+import { Moment } from 'moment';
 import { TimelineEventType } from './../../../core/models/timeline-event';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { EntityState } from './../../../core/+state/entity.state';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-timeline',
@@ -36,6 +38,22 @@ export class TimelineComponent implements OnInit {
 
   public identity(index, item) {
     return index;
+  }
+
+  public isNewDay(timeline: TimelineEvent[], item: TimelineEvent): boolean {
+    const itemIndex = timeline.indexOf(item);
+    const previousEvent = timeline[itemIndex - 1];
+
+    if (previousEvent) {
+      return previousEvent.timestamp.isBefore(item.timestamp, 'day');
+    } else {
+      return true;
+    }
+  }
+
+  public getDateFormat(day: Moment): string {
+    const isToday = moment(day).isSame(moment(), 'day');
+    return isToday ? 'Heute' : day.locale('de').format('ll');
   }
 
   public isCheckIn(type: TimelineEventType): boolean {

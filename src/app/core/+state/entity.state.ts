@@ -49,7 +49,7 @@ export interface EntityStateModel {
       },
       {
         type: TimelineEventType.activity,
-        timestamp: moment('2020-03-02T14:00:00'),
+        timestamp: moment('2020-03-03T14:00:00'),
         from: '15:40',
         to: '16:60',
         content: 'Rewe Einkauf',

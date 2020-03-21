@@ -1,8 +1,14 @@
 .timeline {
   position: relative;
+  margin-top: 1rem;
+
+  &__day {
+    color: var(--text-color);
+    text-align: center;
+  }
 
   &__container {
-    padding: 10px 40px;
+    padding: 10px 16px 10px 50px;
     position: relative;
     background-color: inherit;
 
