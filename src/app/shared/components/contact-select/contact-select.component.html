@@ -25,5 +25,5 @@
       <ion-checkbox slot="end" [(ngModel)]="contact.isSelected"></ion-checkbox>
     </ion-item>
   </ion-list>
-  <app-loader *ngIf="!contactsList"></app-loader>
+  <app-loader *ngIf="contactsList.length > 0" [isLoading]=true></app-loader>
 </ion-content>
