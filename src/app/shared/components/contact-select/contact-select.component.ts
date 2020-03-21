@@ -17,6 +17,7 @@ export class ContactSelectComponent implements OnInit {
       (window as any).navigator.contactsPhoneNumbers.list(
         (contacts: PhoneContact[]) => {
           this.contactsList = contacts;
+          this.contactsList = this.cleanUpContacts(this.contactsList);
         },
         (error) => {
           console.log(error);
@@ -75,20 +76,29 @@ export class ContactSelectComponent implements OnInit {
           type: 'HOME'
         }]
       }];
-      this.contactsList = [...this.contactsList].map(contact => {
-        if (!contact.thumbnail) {
-          contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}+${contact.lastName}&background=3399FF&color=fff`;
-        }
-        return contact;
-      });
     }
 
+    this.contactsList = this.cleanUpContacts(this.contactsList);
   }
 
   public dismiss() {
     this.modalCtrl.dismiss({
       dismissed: true,
       selectedContacts: this.getSelectedContacts()
+    });
+  }
+
+  private cleanUpContacts(contacts): PhoneContact[] {
+    return [...contacts].map(contact => {
+      if (!contact.thumbnail) {
+        contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}+${contact.lastName}&background=3399FF&color=fff`;
+      }
+
+      if (contact.thumbnail.startsWith('content')) {
+        contact.thumbnail = (window as any).Ionic.WebView.convertFileSrc(contact.thumbnail);
+      }
+
+      return contact;
     });
   }
 
