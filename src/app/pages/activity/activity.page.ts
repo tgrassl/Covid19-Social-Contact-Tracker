@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-activity',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityPage implements OnInit {
 
+  @ViewChild('content', {static: false}) private content: any;
+  
   constructor() { }
 
   ngOnInit() {
+    this.scrollToBottomOnInit();
   }
-
+  
+  scrollToBottomOnInit() {
+    setTimeout(() => {
+      if (this.content.scrollToBottom) {
+        this.content.scrollToBottom(0);
+      }
+    }, 500);
+  }
 }
