@@ -5,11 +5,5 @@ ion-title {
 
 ion-toolbar {
     padding: 0;
-}
-
-.avatar-fallback {
-    background-color: var(--light-grey-2);
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
+    padding-top: 0 !important;
 }

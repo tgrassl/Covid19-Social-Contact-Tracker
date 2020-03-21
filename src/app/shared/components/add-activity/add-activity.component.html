@@ -24,7 +24,7 @@
         <app-transport-form (submitted)="handleSubmit($event)"></app-transport-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.contact">
-        <app-contact-form></app-contact-form>
+        <app-contact-form (submitted)="handleSubmit($event)"></app-contact-form>
       </ng-container>
       <ng-container *ngSwitchCase="selectedTab === addActivityTabs.note">
         <app-note-form (submitted)="handleSubmit($event)"></app-note-form>

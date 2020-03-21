@@ -15,16 +15,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-list>
-    <ion-item *ngFor="let entry of getContacts()">
-      <ion-avatar>
-        <ion-img [src]="entry.img"></ion-img>
-      </ion-avatar>
-      <ion-label>{{entry.val}}</ion-label>
-      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
-    </ion-item>
-  </ion-list> -->
-
   <ion-list *ngIf="contactsList">
     <ion-item *ngFor="let contact of contactsList">
       <ion-avatar slot="start">
@@ -35,4 +25,5 @@
       <ion-checkbox slot="end" [(ngModel)]="contact.isSelected"></ion-checkbox>
     </ion-item>
   </ion-list>
+  <app-loader *ngIf="!contactsList"></app-loader>
 </ion-content>

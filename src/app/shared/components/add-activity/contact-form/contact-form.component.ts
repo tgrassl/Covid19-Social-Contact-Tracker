@@ -28,7 +28,8 @@ export class ContactFormComponent implements OnInit {
 
   async showContactSelect() {
     const modal = await this.modalController.create({
-      component: ContactSelectComponent
+      component: ContactSelectComponent,
+      componentProps: this.contactFormGroup.value.contacts
     });
     modal.onWillDismiss().then(event => {
       console.log(event.data);
@@ -40,16 +41,21 @@ export class ContactFormComponent implements OnInit {
   public submitForm(): void {
     if (this.contactFormGroup.valid) {
       const newEvent = this.contactFormGroup.value as TimelineEvent;
-      newEvent.type = TimelineEventType.travel;
+      newEvent.type = TimelineEventType.contact;
       newEvent.timestamp = moment();
       newEvent.from = moment(newEvent.from).format('HH:mm');
-      newEvent.to = moment(newEvent.to).format('HH:mm');
       this.submitted.emit(newEvent);
     }
   }
 
   public getContactText(): string {
     const contactFieldValue = this.contactFormGroup.value.contacts;
-    return contactFieldValue.length > 0 ? (contactFieldValue.length + 1) + 'Kontakte' : 'Kontakte auswählen';
+    return contactFieldValue.length > 0 
+    ? `${contactFieldValue.length} ${this.getContactTextVariant(contactFieldValue.length)}`
+    : 'Kontakte auswählen';
+  }
+
+  private getContactTextVariant(length): string {
+    return length > 1 ? 'Kontakte' : 'Kontakt';
   }
 }

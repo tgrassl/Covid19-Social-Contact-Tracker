@@ -17,10 +17,10 @@ export class ContactSelectComponent implements OnInit {
       (window as any).navigator.contactsPhoneNumbers.list(
         (contacts: PhoneContact[]) => {
           this.contactsList = contacts;
-      },
-      (error) => {
-        console.log(error);
-      });
+        },
+        (error) => {
+          console.log(error);
+        });
     } else {
       this.contactsList = [{
         id: '1',
@@ -30,15 +30,15 @@ export class ContactSelectComponent implements OnInit {
         displayName: 'Kate Bell',
         thumbnail: null,
         phoneNumbers: [{
-            number: '(555) 564-8583',
-            normalizedNumber: '(555) 564-8583',
-            type: 'MOBILE'
+          number: '(555) 564-8583',
+          normalizedNumber: '(555) 564-8583',
+          type: 'MOBILE'
         }, {
-            number: '(415) 555-3695',
-            normalizedNumber: '(415) 555-3695',
-            type: 'OTHER'
+          number: '(415) 555-3695',
+          normalizedNumber: '(415) 555-3695',
+          type: 'OTHER'
         }]
-    }, {
+      }, {
         id: '2',
         firstName: 'Daniel',
         middleName: '',
@@ -46,19 +46,19 @@ export class ContactSelectComponent implements OnInit {
         displayName: 'Daniel Higgins',
         thumbnail: null,
         phoneNumbers: [{
-            number: '555-478-7672',
-            normalizedNumber: '555-478-7672',
-            type: 'HOME'
+          number: '555-478-7672',
+          normalizedNumber: '555-478-7672',
+          type: 'HOME'
         }, {
-            number: '(408) 555-5270',
-            normalizedNumber: '(408) 555-5270',
-            type: 'MOBILE'
+          number: '(408) 555-5270',
+          normalizedNumber: '(408) 555-5270',
+          type: 'MOBILE'
         }, {
-            number: '(408) 555-3514',
-            normalizedNumber: '(408) 555-3514',
-            type: 'OTHER'
+          number: '(408) 555-3514',
+          normalizedNumber: '(408) 555-3514',
+          type: 'OTHER'
         }]
-    }, {
+      }, {
         id: '3',
         firstName: 'John',
         middleName: 'Paul',
@@ -66,15 +66,21 @@ export class ContactSelectComponent implements OnInit {
         displayName: 'John Paul Appleseed',
         thumbnail: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
         phoneNumbers: [{
-            number: '888-555-5512',
-            normalizedNumber: '888-555-5512',
-            type: 'MOBILE'
+          number: '888-555-5512',
+          normalizedNumber: '888-555-5512',
+          type: 'MOBILE'
         }, {
-            number: '888-555-1212',
-            normalizedNumber: '888-555-1212',
-            type: 'HOME'
+          number: '888-555-1212',
+          normalizedNumber: '888-555-1212',
+          type: 'HOME'
         }]
-    }];
+      }];
+      this.contactsList = [...this.contactsList].map(contact => {
+        if (!contact.thumbnail) {
+          contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}+${contact.lastName}&background=3399FF&color=fff`;
+        }
+        return contact;
+      });
     }
 
   }
