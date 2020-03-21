@@ -1,3 +1,4 @@
+import { NoteComponent } from './components/timeline/note/note.component';
 import { ContactComponent } from './components/timeline/contact/contact.component';
 import { ChecksComponent } from './components/timeline/checks/checks.component';
 import { TravelComponent } from './components/timeline/travel/travel.component';
@@ -21,7 +22,8 @@ import { MomentModule } from 'ngx-moment';
     TravelComponent,
     ChecksComponent,
     ContactComponent,
-    ActivityComponent
+    ActivityComponent,
+    NoteComponent
   ],
   entryComponents: [TimelineComponent],
   imports: [
@@ -37,7 +39,8 @@ import { MomentModule } from 'ngx-moment';
     TravelComponent,
     ChecksComponent,
     ContactComponent,
-    ActivityComponent
+    ActivityComponent,
+    NoteComponent
   ],
   providers: [StatusBar]
 })

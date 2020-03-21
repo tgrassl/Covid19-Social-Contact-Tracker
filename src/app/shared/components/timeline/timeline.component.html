@@ -1,6 +1,6 @@
 <div *ngIf="(timeline$ | async) as timeline">
-  <ion-virtual-scroll [items]="timeline" class="timeline">
-    <div *virtualItem="let item">
+  <ion-virtual-scroll [items]="timeline" class="timeline" approxItemHeight="300px">
+    <div *virtualItem="let item; let itemBounds = bounds">
       <div class="timeline__day" *ngIf="isNewDay(timeline, item)">
         {{getDateFormat(item.timestamp)}}
       </div>
@@ -19,7 +19,7 @@
             <app-activity [event]="item"></app-activity>
           </ng-container>
           <ng-container *ngSwitchCase="isNote(item.type)">
-            
+            <app-note [event]="item"></app-note>
           </ng-container>
           <ng-container *ngSwitchCase="isContact(item.type)">
             <app-contact [event]="item"></app-contact>

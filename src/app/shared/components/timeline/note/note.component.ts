@@ -2,12 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
 
 @Component({
-  selector: 'app-activity',
-  templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.scss'],
+  selector: 'app-note',
+  templateUrl: './note.component.html',
+  styleUrls: ['./note.component.scss'],
 })
-export class ActivityComponent {
+export class NoteComponent {
+
   @Input() event: TimelineEvent;
-  
+
   constructor() { }
+
 }

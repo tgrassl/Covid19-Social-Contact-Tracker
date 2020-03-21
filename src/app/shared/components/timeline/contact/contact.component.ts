@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
   @Input() event: TimelineEvent;
   
   constructor() { }
-
-  ngOnInit() {}
 
   public getContactName(): string {
     const firstContact = this.event.contacts[0];

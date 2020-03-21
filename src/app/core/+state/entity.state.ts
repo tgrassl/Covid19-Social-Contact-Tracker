@@ -55,6 +55,11 @@ export interface EntityStateModel {
         content: 'Rewe Einkauf',
         indirectContacts: 8,
       },
+      {
+        type: TimelineEventType.note,
+        timestamp: moment('2020-03-21T16:20:00'),
+        content: 'Noch keine Symptome, fühle mich gut'
+      },
     ]
   }
 })
