@@ -1,0 +1,16 @@
+.contact {
+    padding-right: 0;
+
+    &__avatars {
+        display: flex;
+
+        ion-avatar {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    &__text {
+        margin-left: .5rem;
+    }
+}

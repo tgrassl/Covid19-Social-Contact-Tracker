@@ -1,0 +1,6 @@
+<div class="timeline__content checks">
+  <ion-icon [name]="getCheckIcon()"></ion-icon>
+  <div>
+    <b>Zuhause</b> um <b>{{event.timestamp | amDateFormat:'HH:mm'}} Uhr</b> {{getCheckType()}}
+  </div>
+</div>

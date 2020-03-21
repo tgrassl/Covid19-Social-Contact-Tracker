@@ -1,0 +1,20 @@
+<div class="timeline__content contact">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col class="contact__avatars" size="3">
+        <ion-avatar *ngFor="let contact of getContactAvatars()">
+          <img [src]="contact.image">
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="9">
+        <div class="contact__text">
+          <b>{{getContactName()}}</b>
+          <ng-container *ngIf="this.event.contacts.length > 1">
+            und <b>{{getAdditionalContacts()}}</b> weitere {{getPersonWording(getAdditionalContacts())}}
+          </ng-container> 
+          um <b>{{event.from}} Uhr</b> getroffen
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
