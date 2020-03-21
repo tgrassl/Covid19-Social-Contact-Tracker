@@ -1,3 +1,4 @@
+import { PhoneContact } from './../../core/models/phone-contact.model';
 import { Select } from '@ngxs/store';
 import { EntityState } from './../../core/+state/entity.state';
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
@@ -13,6 +14,7 @@ export class ActivityPage implements AfterViewInit, OnDestroy{
 
   @ViewChild('content', {static: false}) private content: any;
 
+  @Select(EntityState.directContacts) directContacts$: Observable<PhoneContact[]>;
   @Select(EntityState.timeline) timeline$: Observable<TimelineEvent[]>;
 
   private scrollSub: Subscription;
@@ -22,6 +24,7 @@ export class ActivityPage implements AfterViewInit, OnDestroy{
   ngAfterViewInit() {
     this.scrollToBottom();
     this.scrollSub = this.timeline$.subscribe(timeline => {
+      console.log(timeline);
       this.scrollToBottom();
     });
   }

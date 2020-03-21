@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment.prod';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -26,7 +27,7 @@ import { CoreModule } from './core/core.module';
     }),
     AppRoutingModule,
     CoreModule,
-    NgxsModule.forRoot([AppState]),
+    NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot()
   ],

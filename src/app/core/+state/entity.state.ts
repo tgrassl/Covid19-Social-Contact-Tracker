@@ -3,15 +3,18 @@ import { TimelineEvent, TimelineEventType, TransportType } from '../models/timel
 import { MedicalStatus } from './../models/medical-status';
 import { AddTimelineEvent, CheckIn, CheckOut } from './entity.actions';
 import * as moment from 'moment';
+import { PhoneContact } from '../models/phone-contact.model';
 
 export interface EntityStateModel {
   timeline: TimelineEvent[];
   medicalStatus?: MedicalStatus;
+  directContacts?: PhoneContact[];
 }
 
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
+    directContacts: [],
     timeline: [
       {
         type: TimelineEventType.travel,
@@ -77,12 +80,22 @@ export class EntityState {
     return state.medicalStatus;
   }
 
+  @Selector()
+  static directContacts(state: EntityStateModel): PhoneContact[] {
+    return state.directContacts;
+  }
+
   @Action(AddTimelineEvent)
   addTimelineEvent(ctx: StateContext<EntityStateModel>, action: AddTimelineEvent) {
     const state = ctx.getState();
     const timeline = [...state.timeline];
     const newTimeline = [...timeline, action.event];
     ctx.patchState({timeline: newTimeline});
+
+    if (action.event.contacts) {
+      const newDirectContacts = [...state.directContacts, ...action.event.contacts];
+      ctx.patchState({directContacts: newDirectContacts});
+    }
   }
 
   @Action(CheckIn)

@@ -1,3 +1,4 @@
+import { CoreModule } from './../core/core.module';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,6 +45,7 @@ import { TravelComponent } from './components/timeline/travel/travel.component';
     MomentModule,
     ReactiveFormsModule,
     FormsModule,
+    CoreModule
   ],
   exports: [
     LoaderComponent,

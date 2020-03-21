@@ -1,7 +1,7 @@
 <div class="timeline__content contact">
   <div  class="contact__avatars">
     <ion-avatar *ngFor="let contact of getContactAvatars()">
-      <img [src]="contact.thumbnail">
+      <img [src]="contact.thumbnail | safe">
     </ion-avatar>
     <div class="contact__text">
       <b>{{getContactName()}}</b>
