@@ -46,6 +46,14 @@ export interface EntityStateModel {
         type: TimelineEventType.checkOut,
         timestamp: moment('2020-03-03T08:20:00')
       },
+      {
+        type: TimelineEventType.activity,
+        timestamp: moment('2020-03-02T14:00:00'),
+        from: '15:40',
+        to: '16:60',
+        content: 'Rewe Einkauf',
+        indirectContacts: 8,
+      },
     ]
   }
 })

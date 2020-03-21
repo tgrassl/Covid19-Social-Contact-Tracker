@@ -1,0 +1,20 @@
+.activity {
+
+    &__title {
+        font-weight: bold;
+    }
+
+    &__time {
+        margin-bottom: .5rem;
+    } 
+
+    ion-icon {
+        margin-right: .5rem;
+        vertical-align: middle;  
+        font-size: 1.2rem;  
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
