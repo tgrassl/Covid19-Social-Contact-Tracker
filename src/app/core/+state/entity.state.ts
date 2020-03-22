@@ -14,7 +14,11 @@ export interface EntityStateModel {
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
-    directContacts: [],
+    directContacts: [{
+      phoneNumbers: null,
+      displayName: 'Alex',
+      thumbnail: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg'
+    }],
     timeline: [
       {
         type: TimelineEventType.travel,
@@ -68,7 +72,7 @@ export interface EntityStateModel {
 })
 export class EntityState {
 
-  constructor() {}
+  constructor() { }
 
   @Selector()
   static timeline(state: EntityStateModel): TimelineEvent[] {
@@ -90,19 +94,19 @@ export class EntityState {
     const state = ctx.getState();
     const timeline = [...state.timeline];
     const newTimeline = [...timeline, action.event];
-    ctx.patchState({timeline: newTimeline});
+    ctx.patchState({ timeline: newTimeline });
 
     if (action.event.contacts) {
       const newDirectContacts = [...state.directContacts, ...action.event.contacts];
-      ctx.patchState({directContacts: newDirectContacts});
+      ctx.patchState({ directContacts: newDirectContacts });
     }
   }
 
   @Action(CheckIn)
   checkIn(ctx: StateContext<EntityStateModel>) {
     const checkInEvent: TimelineEvent = {
-        type: TimelineEventType.checkIn,
-        timestamp: moment(),
+      type: TimelineEventType.checkIn,
+      timestamp: moment(),
     };
 
     ctx.dispatch(new AddTimelineEvent(checkInEvent));

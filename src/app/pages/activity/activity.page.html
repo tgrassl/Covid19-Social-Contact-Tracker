@@ -4,7 +4,7 @@
     <ion-grid *ngIf="(directContacts$ | async) as directContacts">
       <ion-row class="ion-align-items-center">
         <ion-col size="6">
-          <div class="activity-toolbar__active">{{directContacts.length}} Aktive Kontakte</div>
+          <div class="activity-toolbar__active">{{directContacts.length}} {{getInfoText(directContacts.length)}}</div>
         </ion-col>
         <ion-col size="6" class="ion-align-self-end">
           <div class="activity-toolbar__contacts">
