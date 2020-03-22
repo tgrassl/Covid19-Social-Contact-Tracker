@@ -15,7 +15,6 @@ export class IntroGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const introCompleted = this.store.selectSnapshot(EntityState.introCompleted);
 
-    console.log(introCompleted);
     if (introCompleted) {
       return true;
     } else {

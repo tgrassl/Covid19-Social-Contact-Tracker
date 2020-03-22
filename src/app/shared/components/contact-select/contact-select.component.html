@@ -1,16 +1,30 @@
 <ion-header class="toolbar--default toolbar--center">
   <ion-toolbar class="contact-select">
-    <ion-buttons slot="start">
-      <ion-button (click)="dismiss()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Kontakte auswählen</ion-title>
-    <ion-buttons slot="end">
-      <ion-button color="primary" (click)="dismiss()">
-        Fertig
-      </ion-button>
-    </ion-buttons>
+    <ion-grid>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-buttons slot="start">
+            <ion-button (click)="dismiss()">
+              <ion-icon slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>Kontakte auswählen</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="dismiss()">
+              Fertig
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-searchbar mode="ios" placeholder="Kontakte suchen" debounce="500" inputmode="text" type="text"
+            showCancelButton="never"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 

@@ -39,7 +39,7 @@ export class ActivityPage implements AfterViewInit, OnDestroy {
   }
 
   public getInfoText(length: number): string {
-    return length > 1 ? 'Aktive Kontakte' : 'Aktiver Kontakt';
+    return length !== 1 ? 'Aktive Kontakte' : 'Aktiver Kontakt';
   }
 
   private scrollToBottom(): void {

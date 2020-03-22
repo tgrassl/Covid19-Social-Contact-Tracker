@@ -73,8 +73,8 @@ export class DiseaseCheckComponent implements OnInit {
   }
 
   public getInformText(length): string {
-    return `${length > 1 ? 'Sollen' : 'Soll'} ${length > 1 ? 'deine' : 'dein'} 
-    <b>${length}</b> ${length > 1 ? 'Kontakte' : 'Kontakt'} benachrichtigt werden?`;
+    return `${length !== 1 ? 'Sollen' : 'Soll'} ${length !== 1 ? 'deine' : 'dein'} 
+    <b>${length}</b> ${length !== 1 ? 'Kontakte' : 'Kontakt'} benachrichtigt werden?`;
   }
 
   public getDiseaseTypeName(status: MedicalStatus): string {
