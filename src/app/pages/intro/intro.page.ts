@@ -26,6 +26,11 @@ export class IntroPage implements AfterViewInit {
       reason: 'Wird benötigt um Kontakte auszulesen. Daten werden nur auf dem Gerät gespeichert.',
       name: 'Kontakte',
       permission: this.androidPermissions.PERMISSION.READ_CONTACTS
+    },
+    {
+      reason: 'Wird benötigt um Kontakte bei Krankheit zu benachrichtigen.',
+      name: 'SMS',
+      permission: this.androidPermissions.PERMISSION.SEND_SMS
     }
   ];
 

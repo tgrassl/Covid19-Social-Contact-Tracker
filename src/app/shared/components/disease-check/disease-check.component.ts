@@ -88,12 +88,12 @@ export class DiseaseCheckComponent implements OnInit {
   }
 
   async notifyAllDirectContacts(medicalStatus: MedicalStatus): Promise<boolean> {
-    const message = `Achtung: \nIch habe Symptome ${this.getDiseaseTypeName(medicalStatus)}
-    seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')}.
-    Ich war ${this.getDoctorText(medicalStatus)}\n
-    Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n
-    Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt. \n
-    Mehr Info darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
+    const message = `Achtung:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')}` +
+    `Symptome ${this.getDiseaseTypeName(medicalStatus)}` +
+    `Ich war ${this.getDoctorText(medicalStatus)}\n` +
+    `Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n` +
+    `Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt.` +
+    `Mehr Info darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
 
     console.log(message);
 
@@ -112,6 +112,7 @@ export class DiseaseCheckComponent implements OnInit {
       try {
         const contactNumber = contact.phoneNumbers.find(phoneNumber => phoneNumber.type === 'MOBILE').normalizedNumber;
         await this.sms.send(contactNumber, message, smsOptions);
+        console.log('sent to', contactNumber);
         totalSendAmount++;
         this.loader.setContent(this.getLoaderStatus(totalSendAmount, directContacts.length));
       } catch {
