@@ -2,7 +2,7 @@
 
 ## Ziel
 Jetzt ist mein Covid-19 Test positiv … aber wen habe ich die letzten 14 Tage genau getroffen? 
-Social Distance Tracker erlaubt das Tracken von Aktivitäten und die Benachrichtigung von direkten Kontakten bei Krankheitseintritt. 
+Der Social Contact Tracker erlaubt das Tracken von Aktivitäten und die Benachrichtigung von direkten Kontakten bei Krankheitseintritt. 
 
 ## Hintergrund
 Die App wurde innerhalb von 48h für den [WirVsVirusHackathon](https://wirvsvirushackathon.org/) von mir designed und entwickelt.
