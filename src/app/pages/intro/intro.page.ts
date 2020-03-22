@@ -1,8 +1,10 @@
-import { Store } from '@ngxs/store';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { IonSlides } from '@ionic/angular';
+import { Store } from '@ngxs/store';
+import { CompleteIntro } from './../../core/+state/entity.actions';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-intro',
@@ -29,17 +31,26 @@ export class IntroPage implements AfterViewInit {
 
   public permissionsGranted: boolean;
 
-  constructor(private router: Router, private store: Store, private androidPermissions: AndroidPermissions) { }
+  constructor(
+    private router: Router,
+    private store: Store,
+    private androidPermissions: AndroidPermissions,
+    private statusBar: StatusBar) { }
 
   ngAfterViewInit() {
     this.ionSlides.lockSwipes(true);
+  }
+
+  ionViewDidEnter() {
+    this.statusBar.styleDefault();
+    this.statusBar.backgroundColorByHexString('#FBFBFB');
   }
 
   nextSlide() {
     this.ionSlides.isEnd().then(isEnd => {
       if (isEnd) {
         this.checkPermissions().then(() => {
-          this.router.navigate(['tabs/activity']);
+          this.router.navigateByUrl('/tabs/activity');
         });
       } else {
         this.ionSlides.lockSwipes(false);
@@ -53,6 +64,10 @@ export class IntroPage implements AfterViewInit {
     try {
       await this.androidPermissions.requestPermissions(permissions);
       this.permissionsGranted = true;
+
+      if (this.permissionsGranted) {
+        this.store.dispatch(new CompleteIntro());
+      }
     } catch (error) {
       this.permissionsGranted = false;
       console.log(error);

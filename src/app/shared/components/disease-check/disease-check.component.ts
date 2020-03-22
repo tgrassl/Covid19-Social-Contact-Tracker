@@ -59,7 +59,7 @@ export class DiseaseCheckComponent implements OnInit {
       this.dismiss();
 
       if (notifyContacts) {
-        this.notifyAllDirectContacts().then(async (sent: boolean) => {
+        this.notifyAllDirectContacts(medicalStatus).then(async (sent: boolean) => {
           if (sent) {
             await this.presentToast('Kontakte wurden informiert!', false);
           }
@@ -77,10 +77,29 @@ export class DiseaseCheckComponent implements OnInit {
     <b>${length}</b> ${length > 1 ? 'Kontakte' : 'Kontakt'} benachrichtigt werden?`;
   }
 
-  async notifyAllDirectContacts(): Promise<boolean> {
-    const message = '';
+  public getDiseaseTypeName(status: MedicalStatus): string {
+    const diseaseType = status.diseaseType;
+    return (diseaseType === DiseaseType.other) ? 'einer Krankheit' : 'der Krankheit ' + diseaseType;
+  }
+
+  public getDoctorText(status: MedicalStatus): string {
+    const visitedDoctor = status.visitedDoctor;
+    return visitedDoctor ? 'noch nicht beim Arzt.' : 'bereits beim Arzt.';
+  }
+
+  async notifyAllDirectContacts(medicalStatus: MedicalStatus): Promise<boolean> {
+    const message = `Achtung: \nIch habe Symptome ${this.getDiseaseTypeName(medicalStatus)}
+    seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')}.
+    Ich war ${this.getDoctorText(medicalStatus)}\n
+    Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n
+    Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt. \n
+    Mehr Info darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
+
+    console.log(message);
+
     const directContacts = this.store.selectSnapshot(EntityState.directContacts);
     const smsOptions: SmsOptions = {
+      replaceLineBreaks: true,
       android: {
         intent: ''
       }
