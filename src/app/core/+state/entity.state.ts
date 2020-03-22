@@ -1,4 +1,3 @@
-import { PhoneContact } from './../models/phone-contact.model';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { TimelineEvent, TimelineEventType, TransportType } from '../models/timeline-event';
 import { MedicalStatus } from './../models/medical-status';
@@ -8,7 +7,7 @@ import { PhoneContact } from '../models/phone-contact.model';
 
 export interface EntityStateModel {
   timeline: TimelineEvent[];
-  medicalStatus?: MedicalStatus[];
+  medicalStatus: MedicalStatus[];
   directContacts?: PhoneContact[];
   indirectContacts?: number;
 }
@@ -16,8 +15,8 @@ export interface EntityStateModel {
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
-    medicalStatus: [],
     indirectContacts: 0,
+    medicalStatus: [],
     directContacts: [{
       phoneNumbers: null,
       displayName: 'Alex',
@@ -71,7 +70,7 @@ export interface EntityStateModel {
         timestamp: moment('2020-03-21T16:20:00'),
         content: 'Noch keine Symptome, fühle mich gut'
       },
-    ]
+    ],
   }
 })
 export class EntityState {
@@ -144,7 +143,7 @@ export class EntityState {
   @Action(SetMedicalStatus, {cancelUncompleted: true})
   setMedicalStatus(ctx: StateContext<EntityStateModel>, action: SetMedicalStatus) {
     const state = ctx.getState();
-    const medicalStatus = [...state.medicalStatus];
+    const medicalStatus = state.medicalStatus;
     const newMedicalStatus = [...medicalStatus, action.status];
     ctx.patchState({ medicalStatus: newMedicalStatus });
   }

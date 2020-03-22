@@ -1,5 +1,3 @@
-import { Directive } from '@angular/core';
-
 import { Directive, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
