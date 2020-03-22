@@ -1,9 +1,10 @@
 $small-mobile-width: 320px;
+$small-mobile-height: 640px;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
 @mixin small-mobile {
-  @media(max-width: #{$small-mobile-width}) {
+  @media(max-height: #{$small-mobile-height}) {
       @content;
   }
 }

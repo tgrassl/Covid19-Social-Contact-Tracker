@@ -1,3 +1,5 @@
+import { DiseaseCheckComponent } from './../disease-check/disease-check.component';
+import { ModalController } from '@ionic/angular';
 import { animate } from '@angular/animations';
 import { TimelineEvent, TimelineEventType } from 'src/app/core/models/timeline-event';
 import { AddTimelineEvent } from './../../../core/+state/entity.actions';
@@ -27,7 +29,7 @@ export class AddActivityComponent {
     this.bottomSheet.open();
   }
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private modalCtrl: ModalController) { }
 
   public selectTab(tab: string): void {
     this.selectedTab = tab;
@@ -50,6 +52,18 @@ export class AddActivityComponent {
   public diseaseDetected(): void {
     this.selectedTab = this.addActivityTabs.activity;
     this.bottomSheet.close();
+    this.showDiseaseCheck();
+  }
+
+  async showDiseaseCheck() {
+    const modal = await this.modalCtrl.create({
+      component: DiseaseCheckComponent,
+      cssClass: 'disease-modal'
+    });
+    modal.onWillDismiss().then(event => {
+      
+    });
+    return await modal.present();
   }
 
   public checkIn(): void {

@@ -105,4 +105,8 @@ export class ContactSelectComponent implements OnInit {
   private getSelectedContacts() {
     return this.contactsList.filter((contact: PhoneContact) => contact.isSelected);
   }
+
+  public identity(index, item): number {
+    return index;
+  }
 }

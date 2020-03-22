@@ -32,7 +32,6 @@ export class ContactFormComponent implements OnInit {
       componentProps: this.contactFormGroup.value.contacts
     });
     modal.onWillDismiss().then(event => {
-      console.log(event.data);
       this.contactFormGroup.controls.contacts.setValue(event.data.selectedContacts);
     });
     return await modal.present();

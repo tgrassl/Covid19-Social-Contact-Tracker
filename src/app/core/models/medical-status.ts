@@ -1,8 +1,14 @@
 import { Moment } from 'moment';
 
 export interface MedicalStatus {
-    disease: string;
+    diseaseType: DiseaseType;
     visitedDoctor: boolean;
-    firstSymptoms: Moment;
+    timeFirstSymptoms: Moment;
     notifiedContacts: boolean;
+}
+
+export enum DiseaseType {
+    covid19 = 'Covid-19',
+    influenza = 'Influenza (Grippe)',
+    other = 'Andere'
 }

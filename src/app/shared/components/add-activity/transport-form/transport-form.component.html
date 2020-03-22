@@ -6,7 +6,7 @@
 
   <ion-item>
     <ion-label>Transportmittel</ion-label>
-    <ion-select placeholder="Auswählen" formControlName="transportType">
+    <ion-select placeholder="Auswählen" formControlName="transportType" okText="Ok" cancelText="Abbrechen">
       <ion-select-option [value]="type.value" *ngFor="let type of transportTypes | keyvalue">{{type.value}}</ion-select-option>
     </ion-select>
   </ion-item>

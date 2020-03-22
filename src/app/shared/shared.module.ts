@@ -1,3 +1,6 @@
+import { DiseaseComponent } from './components/timeline/disease/disease.component';
+import { SMS } from '@ionic-native/sms/ngx';
+import { DiseaseCheckComponent } from './components/disease-check/disease-check.component';
 import { CoreModule } from './../core/core.module';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -19,6 +22,7 @@ import { ContactComponent } from './components/timeline/contact/contact.componen
 import { NoteComponent } from './components/timeline/note/note.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TravelComponent } from './components/timeline/travel/travel.component';
+import { PreventDoubleClickDirective } from './directives/prevent-double-click.directive';
 
 @NgModule({
   declarations: [
@@ -36,8 +40,11 @@ import { TravelComponent } from './components/timeline/travel/travel.component';
     NoteFormComponent,
     ActivityFormComponent,
     ContactSelectComponent,
+    DiseaseCheckComponent,
+    DiseaseComponent,
+    PreventDoubleClickDirective
   ],
-  entryComponents: [TimelineComponent, ContactSelectComponent],
+  entryComponents: [TimelineComponent, ContactSelectComponent, DiseaseCheckComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
@@ -61,8 +68,10 @@ import { TravelComponent } from './components/timeline/travel/travel.component';
     ContactFormComponent,
     NoteFormComponent,
     ActivityFormComponent,
-    ContactSelectComponent
+    ContactSelectComponent,
+    DiseaseCheckComponent,
+    DiseaseComponent
   ],
-  providers: [StatusBar]
+  providers: [StatusBar, SMS]
 })
 export class SharedModule { }

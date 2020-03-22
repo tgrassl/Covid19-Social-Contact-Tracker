@@ -1,7 +1,4 @@
-button {
-  border: 0;
-  background: none;
-}
+@import '../functions/media-queries';
 
 ion-content {
   --background: white;
@@ -137,6 +134,32 @@ ion-item-divider {
   font-weight: bold;
   --background: var(--light-grey);
   border: none !important;
+}
+
+.disease-modal {
+  --width: 85%;
+  --height: 60%;
+  --border-radius: 8px;
+
+  @include small-mobile() {
+    --width: 95%;
+    --height: 80%;
+  }
+
+  @include iphone() {
+    --width: 95%;
+    --height: 65%;
+  }
+}
+
+.item-bold {
+  ion-label {
+    font-weight: bold;
+  }
+
+  ion-avatar {
+    margin-left: 0;
+  }
 }
 
 .toolbar {

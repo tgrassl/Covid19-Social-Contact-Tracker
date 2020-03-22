@@ -45,7 +45,7 @@ export class ActivityPage implements AfterViewInit, OnDestroy {
   private scrollToBottom(): void {
     setTimeout(() => {
       if (this.content.scrollToBottom) {
-        this.content.scrollToBottom(200);
+        this.content.scrollToBottom(400);
       }
     }, 500);
   }

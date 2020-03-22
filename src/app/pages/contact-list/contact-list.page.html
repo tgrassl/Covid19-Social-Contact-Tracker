@@ -27,7 +27,7 @@
   </ion-item-group>
 
   <ion-list *ngIf="(directContacts$ | async) as directContacts">
-    <ion-item *ngFor="let contact of directContacts; trackBy: identity" lines="full">
+    <ion-item *ngFor="let contact of directContacts; trackBy: identity" lines="full" class="item-bold">
       <ion-avatar slot="start">
         <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
         <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail" onerror="this.style.display='none'">

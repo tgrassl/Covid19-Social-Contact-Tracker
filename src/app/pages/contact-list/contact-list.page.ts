@@ -9,15 +9,12 @@ import { PhoneContact } from 'src/app/core/models/phone-contact.model';
   templateUrl: './contact-list.page.html',
   styleUrls: ['./contact-list.page.scss'],
 })
-export class ContactListPage implements OnInit {
+export class ContactListPage {
 
   @Select(EntityState.directContacts) directContacts$: Observable<PhoneContact[]>;
   @Select(EntityState.indirectContacts) indirectContacts$: Observable<number>;
   
   constructor() { }
-
-  ngOnInit() {
-  }
 
   public identity(index, item) {
     return index;

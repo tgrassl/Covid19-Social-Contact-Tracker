@@ -17,7 +17,7 @@
   position: fixed;
   bottom: 0;
   border-radius: 18px 18px 0px 0;
-  min-height: 650px;
+  // min-height: 650px;
   z-index: 4;
   color: #363636;
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
@@ -26,6 +26,10 @@
   @include small-mobile() {
     min-height: 100%;
     border-radius: 0;
+  }
+
+  @include iphone() {
+    min-height: 85%;
   }
 }
 
@@ -55,6 +59,7 @@
     flex-grow: 1;
     text-align: center;
     align-self: center;
+    padding-right: 35px;
   }
 }
 
