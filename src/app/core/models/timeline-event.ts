@@ -1,3 +1,4 @@
+import { MedicalStatus } from './medical-status';
 import { Moment } from 'moment';
 import { PhoneContact } from './phone-contact.model';
 
@@ -11,6 +12,7 @@ export interface TimelineEvent {
     indirectContacts?: number;
     contacts?: PhoneContact[];
     transportType?: TransportType;
+    medicalStatus?: MedicalStatus;
 }
 
 export enum TimelineEventType {
@@ -20,6 +22,7 @@ export enum TimelineEventType {
     contact = 'contact',
     note = 'note',
     activity = 'activity',
+    disease = 'disease'
 }
 
 export enum TransportType {

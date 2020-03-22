@@ -65,6 +65,10 @@ export class TimelineComponent implements OnInit {
     return type === TimelineEventType.activity;
   }
 
+  public isDisease(type: TimelineEventType): boolean {
+    return type === TimelineEventType.disease;
+  }
+
   public isContact(type: TimelineEventType): boolean {
     return type === TimelineEventType.contact;
   }

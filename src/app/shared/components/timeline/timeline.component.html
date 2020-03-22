@@ -24,6 +24,9 @@
           <ng-container *ngSwitchCase="isContact(item.type)">
             <app-contact [event]="item"></app-contact>
           </ng-container>
+          <ng-container *ngSwitchCase="isDisease(item.type)">
+            <app-disease [event]="item"></app-disease>
+          </ng-container>
         </ng-container>
       </div>
     </div>

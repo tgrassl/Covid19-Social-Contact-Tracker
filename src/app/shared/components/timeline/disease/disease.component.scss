@@ -1,0 +1,15 @@
+.disease {
+    padding: 1rem;
+    background-color: var(--red);
+    
+    &__text {
+        display: flex;
+        color: white;
+
+        ion-icon {
+            margin-right: .5rem;
+            font-size: 2rem;
+            align-self: center;
+        }
+    }
+}
