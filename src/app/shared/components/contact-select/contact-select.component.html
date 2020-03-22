@@ -1,27 +1,26 @@
 <ion-header class="toolbar--default toolbar--center">
   <ion-toolbar class="contact-select">
     <ion-grid>
-
-      <ion-row>
-        <ion-col size="12">
-          <ion-buttons slot="start">
-            <ion-button (click)="dismiss()">
-              <ion-icon slot="icon-only" name="close"></ion-icon>
-            </ion-button>
-          </ion-buttons>
+      <ion-row class="contact-select__header">
+        <ion-col size="3">
+          <ion-button (click)="dismiss()">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6" class="ion-align-self-center">
           <ion-title>Kontakte auswählen</ion-title>
-          <ion-buttons slot="end">
-            <ion-button color="primary" (click)="dismiss()">
-              Fertig
-            </ion-button>
-          </ion-buttons>
+        </ion-col>
+        <ion-col size="3" class="ion-align-self-end" class="contact-select--primary">
+          <ion-button (click)="dismiss()">
+            Fertig
+          </ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="12">
-          <ion-searchbar mode="ios" placeholder="Kontakte suchen" debounce="500" inputmode="text" type="text"
-            showCancelButton="never"></ion-searchbar>
+          <ion-searchbar mode="ios" placeholder="Kontakte suchen" debounce="100" inputmode="text" type="text"
+            showCancelButton="never" (ionChange)="handleSearch($event)"></ion-searchbar>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -30,7 +29,7 @@
 
 <ion-content class="page--default">
   <ion-list *ngIf="contactsList.length > 0">
-    <ion-item *ngFor="let contact of contactsList; trackBy:identity" lines="full" class="item-bold">
+    <ion-item *ngFor="let contact of searchList; trackBy:identity" lines="full" class="item-bold">
       <ion-avatar slot="start">
         <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
         <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail" onerror="this.style.display='none'">

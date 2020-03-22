@@ -84,18 +84,16 @@ export class DiseaseCheckComponent implements OnInit {
 
   public getDoctorText(status: MedicalStatus): string {
     const visitedDoctor = status.visitedDoctor;
-    return visitedDoctor ? 'noch nicht beim Arzt.' : 'bereits beim Arzt.';
+    return visitedDoctor ? 'noch nicht beim Arzt' : 'bereits beim Arzt';
   }
 
   async notifyAllDirectContacts(medicalStatus: MedicalStatus): Promise<boolean> {
-    const message = `Achtung:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')}` +
-    `Symptome ${this.getDiseaseTypeName(medicalStatus)}` +
-    `Ich war ${this.getDoctorText(medicalStatus)}\n` +
-    `Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n` +
-    `Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt.` +
-    `Mehr Info darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
-
-    console.log(message);
+    const message = `Hinweis:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')} ` +
+      `Symptome ${this.getDiseaseTypeName(medicalStatus)}. ` +
+      `Ich war ${this.getDoctorText(medicalStatus)}.\n` +
+      `Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n` +
+      `Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt. ` +
+      `Mehr Infos darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
 
     const directContacts = this.store.selectSnapshot(EntityState.directContacts);
     const smsOptions: SmsOptions = {
@@ -109,16 +107,10 @@ export class DiseaseCheckComponent implements OnInit {
 
     let totalSendAmount = 0;
     directContacts.forEach(async (contact: PhoneContact) => {
-      try {
-        const contactNumber = contact.phoneNumbers.find(phoneNumber => phoneNumber.type === 'MOBILE').normalizedNumber;
-        await this.sms.send(contactNumber, message, smsOptions);
-        console.log('sent to', contactNumber);
-        totalSendAmount++;
-        this.loader.setContent(this.getLoaderStatus(totalSendAmount, directContacts.length));
-      } catch {
-        await this.presentToast(`Fehler beim Senden an ${contact.displayName}`, true);
-        return false;
-      }
+      const contactNumber = contact.phoneNumbers.find(phoneNumber => phoneNumber.type === 'MOBILE').normalizedNumber;
+      await this.sms.send(contactNumber, message, smsOptions);
+      totalSendAmount++;
+      this.loader.setContent(this.getLoaderStatus(totalSendAmount, directContacts.length));
     });
 
     await this.dismissLoader();

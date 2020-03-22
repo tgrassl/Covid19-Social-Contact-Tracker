@@ -1,0 +1,19 @@
+ion-button {
+    --background: transparent;
+    --color: var(--dark-grey-2);
+}
+
+.contact-select {
+    &__header {
+        padding: .5rem 0;
+    }
+
+    &--primary {
+        text-align: end;
+
+        ion-button {
+            --color: var(--primary);
+            --padding-start: 0;
+        }
+    }
+}

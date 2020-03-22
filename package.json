@@ -38,6 +38,7 @@
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "cordova-sms-plugin": "^1.0.0",
     "core-js": "^2.5.4",
+    "fuzzysort": "^1.1.4",
     "moment": "^2.24.0",
     "ngx-moment": "^3.5.0",
     "rxjs": "~6.5.1",

@@ -1,6 +1,7 @@
 import { PhoneContact } from './../../../core/models/phone-contact.model';
 import { ModalController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import * as fuzzysort from 'fuzzysort';
 
 @Component({
   selector: 'app-contact-select',
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContactSelectComponent implements OnInit {
 
   public contactsList: PhoneContact[] = [];
+  public searchList: PhoneContact[] = [];
   constructor(private modalCtrl: ModalController, private platform: Platform) { }
 
   ngOnInit() {
@@ -18,11 +20,13 @@ export class ContactSelectComponent implements OnInit {
         (contacts: PhoneContact[]) => {
           this.contactsList = contacts;
           this.contactsList = this.cleanUpContacts(this.contactsList);
+          this.searchList = this.contactsList;
         },
         (error) => {
           console.log(error);
         });
     } else {
+      // Test in browser
       this.contactsList = [{
         id: '1',
         firstName: 'Kate',
@@ -79,6 +83,7 @@ export class ContactSelectComponent implements OnInit {
     }
 
     this.contactsList = this.cleanUpContacts(this.contactsList);
+    this.searchList = this.contactsList;
   }
 
   public dismiss() {
@@ -88,8 +93,30 @@ export class ContactSelectComponent implements OnInit {
     });
   }
 
-  private cleanUpContacts(contacts): PhoneContact[] {
-    return [...contacts].map(contact => {
+  public handleSearch(event): void {
+    const options = {
+      limit: 100,
+      allowTypo: false,
+      threshold: -10000,
+      key: 'displayName'
+    };
+
+    const results = fuzzysort.go(event.detail.value, this.contactsList, options);
+    const mappedResults = results.map((o: any) => o.obj);
+
+    if (mappedResults.length > 0) {
+      this.searchList = this.sortContacts(mappedResults);
+    } else {
+      this.searchList = this.contactsList;
+    }
+  }
+
+  private sortContacts(contacts: PhoneContact[]): PhoneContact[] {
+    return contacts.sort((a, b) => a.displayName.localeCompare(b.displayName));
+  }
+
+  private cleanUpContacts(contacts: PhoneContact[]): PhoneContact[] {
+    const cleanedContacts = [...contacts].map(contact => {
       if (!contact.thumbnail) {
         contact.thumbnail = `https://eu.ui-avatars.com/api/?name=${contact.firstName}&background=3399FF&color=fff`;
       }
@@ -100,6 +127,8 @@ export class ContactSelectComponent implements OnInit {
 
       return contact;
     });
+
+    return this.sortContacts(cleanedContacts);
   }
 
   private getSelectedContacts() {
