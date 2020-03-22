@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ionic-native/android-permissions": "^5.23.0",
     "@ionic-native/contacts": "^5.22.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/local-notifications": "^5.22.0",
@@ -31,6 +32,7 @@
     "@ngxs/storage-plugin": "^3.6.2",
     "@ngxs/store": "^3.6.2",
     "cordova-android": "^8.1.0",
+    "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-contacts-phonenumbers": "0.0.12",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
@@ -84,7 +86,8 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sms-plugin": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-android-permissions": {}
     },
     "platforms": [
       "android"

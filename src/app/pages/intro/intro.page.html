@@ -1,9 +1,66 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>intro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-slides pager="true" [options]="slideOpts" #slides>
+  <ion-slide>
+    <ion-grid>
+      <ion-row class="intro-slide">
+        <ion-col size="12">
+          <div class="intro-slide__title" >Tracke deine Aktivitäten und speichere welche Menschen direkt mit dir in Kontakt waren</div>
+        </ion-col>
+        <ion-col size="12">
+          <img class="intro-slide__image" src="/assets/svg/distancing.svg">
+        </ion-col>
+        <ion-col size="12">
+          <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
+            Weiter
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+  <ion-slide>
+    <ion-grid>
+      <ion-row class="intro-slide">
+        <ion-col size="12">
+          <div class="intro-slide__title">Bei Krankheit werden deine gesammelten Kontakte automatisch benachrichtigt</div>
+        </ion-col>
+        <ion-col size="12">
+          <img class="intro-slide__image" src="/assets/svg/medicine.svg">
+          <!-- <img class="intro-slide__image" src="/assets/svg/sharing_1.svg"> -->
+        </ion-col>
+        <ion-col size="12">
+          <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
+            Weiter
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+  <ion-slide class="intro-slide">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="intro-slide__title">Der Social Contact Tracker benötigen folgende Berechtigungen</div>
+        </ion-col>
+      </ion-row>
 
-<ion-content>
+      <ion-row class="intro-permission-item" *ngFor="let permission of neededPermissions">
+        <ion-col size="12">
+          <div class="intro-permission-item__title">{{permission.name}}</div>
+        </ion-col>
+        <ion-col size="12">
+          <p class="intro-permission-item__reason">{{permission.reason}}</p>
+        </ion-col>
+      </ion-row>
 
-</ion-content>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
+            Akzeptieren
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+</ion-slides>

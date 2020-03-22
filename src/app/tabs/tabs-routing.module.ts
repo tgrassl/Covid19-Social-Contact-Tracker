@@ -1,3 +1,4 @@
+import { IntroGuard } from './../core/guards/intro.guard';
 import { SettingsPageModule } from './../pages/settings/settings.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -33,12 +34,14 @@ const routes: Routes = [
         redirectTo: '/tabs/activity',
         pathMatch: 'full'
       }
-    ]
+    ],
+    canActivate: [IntroGuard]
   },
   {
     path: '',
     redirectTo: '/tabs/activity',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [IntroGuard]
   }
 ];
 

@@ -20,6 +20,10 @@ export class CheckOut {
   static readonly type = `${prefix} Check Out`;
 }
 
+export class CompleteIntro {
+  static readonly type = `${prefix} Complete Intro`;
+}
+
 export class SetMedicalStatus {
   static readonly type = `${prefix} Set Medical Status`;
   constructor(public status: MedicalStatus) {}

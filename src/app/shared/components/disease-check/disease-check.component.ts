@@ -96,12 +96,12 @@ export class DiseaseCheckComponent implements OnInit {
         totalSendAmount++;
         this.loader.setContent(this.getLoaderStatus(totalSendAmount, directContacts.length));
       } catch {
-        await this.dismissLoader();
         await this.presentToast(`Fehler beim Senden an ${contact.displayName}`, true);
         return false;
       }
     });
 
+    await this.dismissLoader();
     return true;
   }
 

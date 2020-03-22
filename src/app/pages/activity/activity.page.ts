@@ -31,7 +31,7 @@ export class ActivityPage implements AfterViewInit, OnDestroy {
 
   ionViewDidEnter() {
     this.statusBar.styleDefault();
-    this.statusBar.backgroundColorByHexString('#FFC107');
+    this.statusBar.backgroundColorByHexString('#FBFBFB');
   }
 
   public ngOnDestroy(): void {

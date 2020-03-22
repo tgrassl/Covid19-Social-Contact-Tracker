@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { TimelineEvent, TimelineEventType, TransportType } from '../models/timeline-event';
 import { MedicalStatus } from './../models/medical-status';
-import { AddTimelineEvent, CheckIn, CheckOut, SetMedicalStatus } from './entity.actions';
+import { AddTimelineEvent, CheckIn, CheckOut, SetMedicalStatus, CompleteIntro } from './entity.actions';
 import * as moment from 'moment';
 import { PhoneContact } from '../models/phone-contact.model';
 
@@ -10,18 +10,16 @@ export interface EntityStateModel {
   medicalStatus: MedicalStatus[];
   directContacts?: PhoneContact[];
   indirectContacts?: number;
+  introCompleted: boolean;
 }
 
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
+    introCompleted: false,
     indirectContacts: 0,
     medicalStatus: [],
-    directContacts: [{
-      phoneNumbers: null,
-      displayName: 'Alex',
-      thumbnail: 'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg'
-    }],
+    directContacts: [],
     timeline: [
       {
         type: TimelineEventType.travel,
@@ -97,6 +95,12 @@ export class EntityState {
     return state.indirectContacts;
   }
 
+  @Selector()
+  static introCompleted(state: EntityStateModel): boolean {
+    return state.introCompleted;
+  }
+
+
   @Action(AddTimelineEvent, {cancelUncompleted: true})
   addTimelineEvent(ctx: StateContext<EntityStateModel>, action: AddTimelineEvent) {
     const state = ctx.getState();
@@ -146,5 +150,10 @@ export class EntityState {
     const medicalStatus = state.medicalStatus;
     const newMedicalStatus = [...medicalStatus, action.status];
     ctx.patchState({ medicalStatus: newMedicalStatus });
+  }
+
+  @Action(CompleteIntro, {cancelUncompleted: true})
+  CompleteIntro(ctx: StateContext<EntityStateModel>) {
+    ctx.patchState({ introCompleted: true });
   }
 }
