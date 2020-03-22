@@ -24,6 +24,7 @@ ion-badge {
 ion-avatar {
   border: 2px solid white;
   margin-left: -10px;
+  background-color: var(--fallback-color);
 }
 
 ion-toggle {

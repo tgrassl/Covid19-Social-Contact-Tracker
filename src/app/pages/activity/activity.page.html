@@ -9,7 +9,7 @@
         <ion-col size="6" class="ion-align-self-end">
           <div class="activity-toolbar__contacts">
             <ion-avatar *ngFor="let contact of directContacts.slice(0,3)">
-              <img [src]="contact.thumbnail">
+              <img [src]="contact.thumbnail" onerror="this.style.display='none'">
             </ion-avatar>
           </div>
         </ion-col>

@@ -19,7 +19,7 @@
     <ion-item *ngFor="let contact of contactsList">
       <ion-avatar slot="start">
         <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
-        <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail">
+        <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail" onerror="this.style.display='none'">
       </ion-avatar>
       <ion-label>{{contact.displayName}}</ion-label>
       <ion-checkbox slot="end" [(ngModel)]="contact.isSelected"></ion-checkbox>
