@@ -22,7 +22,7 @@ export class ActivityFormComponent implements OnInit {
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),
       indirectContacts: new FormControl('', Validators.required),
-      directContacts: new FormControl('', Validators.required),
+      // directContacts: new FormControl('', Validators.required),
     });
   }
 

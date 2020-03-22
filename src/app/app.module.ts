@@ -23,7 +23,8 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot({
-      mode: 'md'
+      mode: 'md',
+      scrollAssist: false,
     }),
     AppRoutingModule,
     CoreModule,

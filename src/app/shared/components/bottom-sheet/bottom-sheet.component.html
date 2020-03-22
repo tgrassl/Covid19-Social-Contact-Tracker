@@ -1,5 +1,5 @@
 <div class="bottom-sheet-bg-overlay" *ngIf="flags.isBottomSheetEnabled" (click)="close()"></div>
-<div class="bottom-sheet-container" *ngIf="flags.isBottomSheetEnabled" [@slideUpToggle]>
+<ion-grid class="bottom-sheet-container" *ngIf="flags.isBottomSheetEnabled" [@slideUpToggle]>
   <div>
     <div class="bottom-sheet-header">
       <div class="bottom-sheet-header__close" (click)="close()">
@@ -11,4 +11,4 @@
       <ng-content></ng-content>
     </div>
   </div>
-</div>
+</ion-grid>
