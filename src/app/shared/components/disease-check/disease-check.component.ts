@@ -44,7 +44,6 @@ export class DiseaseCheckComponent implements OnInit {
   }
 
   public submitForm(notifyContacts: boolean) {
-    console.log(this.diseaseFormGroup.value);
     if (this.diseaseFormGroup.valid) {
       const formValue = this.diseaseFormGroup.value;
       const medicalStatus: MedicalStatus = formValue as MedicalStatus;
@@ -84,11 +83,11 @@ export class DiseaseCheckComponent implements OnInit {
 
   public getDoctorText(status: MedicalStatus): string {
     const visitedDoctor = status.visitedDoctor;
-    return visitedDoctor ? 'noch nicht beim Arzt' : 'bereits beim Arzt';
+    return visitedDoctor ? 'bereits beim Arzt' : 'noch nicht beim Arzt';
   }
 
   async notifyAllDirectContacts(medicalStatus: MedicalStatus): Promise<boolean> {
-    const message = `Hinweis:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('MM.DD.YYYY')} ` +
+    const message = `Hinweis:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('DD.MM.YYYY')} ` +
       `Symptome ${this.getDiseaseTypeName(medicalStatus)}. ` +
       `Ich war ${this.getDoctorText(medicalStatus)}.\n` +
       `Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n` +
