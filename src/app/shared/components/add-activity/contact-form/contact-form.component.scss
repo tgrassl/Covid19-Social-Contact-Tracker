@@ -3,5 +3,14 @@
     &__title {
         font-weight: bold;
         padding-left: 1rem;
+        color: var(--text-color);
+    }
+
+    &__contact-select {
+        color: var(--ion-placeholder-color,var(--ion-color-step-400,#999));
+
+        &--active {
+            color: var(--text-color);
+        }
     }
 }

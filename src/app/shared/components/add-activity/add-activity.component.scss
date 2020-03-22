@@ -1,4 +1,6 @@
 .add-activity {
+  min-height: 100%;
+  
   &__disease {
     background-color: var(--red);
   }
@@ -44,6 +46,24 @@
     ion-tab-button {
         --color-selected: var(--primary)
     }
+  }
+}
+
+.sheet-tab {
+  &--activity.tab-selected {
+    color: var(--green);
+  }
+
+  &--note.tab-selected {
+    color: var(--dark-grey-2);
+  }
+
+  &--transport.tab-selected {
+    color: #b9a916;
+  }
+
+  &--contact.tab-selected {
+    color: var(--orange);
   }
 }
 

@@ -1,4 +1,4 @@
-<app-bottom-sheet #bottomSheet title="Aktivität erfassen" class="add-activity">
+<app-bottom-sheet #bottomSheet title="Aktivität erfassen" class="add-activity" (closed)="handleSheetClosed()">
   <ion-grid class="m-b-20">
     <ion-row>
       <ion-col class="add-activity__disease" (click)="diseaseDetected()">
@@ -38,6 +38,7 @@
   <div class="add-activity__footer">
       <ion-tab-bar>
         <ion-tab-button 
+        [ngClass]="getSelectedColor()"
         [selected]="selectedTab === addActivityTabs.transport"
         (click)="selectTab(addActivityTabs.transport)">
           <ion-icon name="car-outline"></ion-icon>
@@ -45,6 +46,7 @@
         </ion-tab-button>
     
         <ion-tab-button 
+        [ngClass]="getSelectedColor()"
         [selected]="selectedTab === addActivityTabs.contact" 
         (click)="selectTab(addActivityTabs.contact)">
           <ion-icon name="person-outline"></ion-icon>
@@ -52,6 +54,7 @@
         </ion-tab-button>
     
         <ion-tab-button 
+        [ngClass]="getSelectedColor()"
         [selected]="selectedTab === addActivityTabs.note"
         (click)="selectTab(addActivityTabs.note)">
           <ion-icon name="pencil-sharp"></ion-icon>
@@ -59,6 +62,7 @@
         </ion-tab-button>
     
         <ion-tab-button 
+        [ngClass]="getSelectedColor()"
         [selected]="selectedTab === addActivityTabs.activity"
         (click)="selectTab(addActivityTabs.activity)">
           <ion-icon name="analytics"></ion-icon>

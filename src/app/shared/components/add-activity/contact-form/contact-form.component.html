@@ -1,11 +1,14 @@
 <form [formGroup]="contactFormGroup">
   <div class="contact-form__title">Kontakte besucht</div>
 
-  <ion-item lines="full">
-    <ion-label>Welche Kontake?</ion-label>
-    <ion-text slot="end" (click)="showContactSelect()">
-      {{getContactText()}}
-    </ion-text>
+  <ion-item lines="full" (click)="showContactSelect()">
+      <ion-label>Welche Kontake?</ion-label>
+      <ion-text 
+      slot="end" 
+      class="contact-form__contact-select" 
+      [ngClass]="{'contact-form__contact-select--active': contactFormGroup.value.contacts.length > 0}">
+        {{getContactText()}}
+      </ion-text>
   </ion-item>
 
   <ion-item>

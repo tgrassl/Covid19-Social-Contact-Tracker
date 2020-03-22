@@ -29,18 +29,19 @@
 
 .bottom-sheet-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-  padding: 16px;
+  padding: .8rem 1rem;
   display: flex;
 
   &__close {
     background-color: var(--light-grey-2);
     border-radius: 50px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     text-align: center;
 
     ion-icon {
-        vertical-align: -5px;
+      font-size: 1.3rem;
+      vertical-align: -9.2px;
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { SlideUpToggleAnimation } from './slide-up.animation';
 
 @Component({
@@ -8,19 +8,16 @@ import { SlideUpToggleAnimation } from './slide-up.animation';
   animations: [SlideUpToggleAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BottomSheetComponent implements OnInit {
+export class BottomSheetComponent {
 
   flags: any = {
     isBottomSheetEnabled: false
   };
 
   @Input() title: string;
+  @Output() closed: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private changeDetector: ChangeDetectorRef) {
-  }
-
-  ngOnInit() {
-    
   }
 
   open() {
@@ -31,16 +28,19 @@ export class BottomSheetComponent implements OnInit {
   close() {
     this.flags.isBottomSheetEnabled = false;
     this.changeDetector.detectChanges();
+    this.closed.emit(true);
   }
 
   toggle() {
     this.flags.isBottomSheetEnabled = !this.flags.isBottomSheetEnabled;
     this.changeDetector.detectChanges();
+    this.closed.emit(this.flags.isCloseButtonEnabled);
   }
 
   toggleCloseButton() {
     this.flags.isCloseButtonEnabled = !this.flags.isCloseButtonEnabled;
     this.changeDetector.detectChanges();
+    this.closed.emit(this.flags.isCloseButtonEnabled);
   }
 
 }

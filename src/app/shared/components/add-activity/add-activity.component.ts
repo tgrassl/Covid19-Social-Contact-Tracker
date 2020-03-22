@@ -1,3 +1,4 @@
+import { animate } from '@angular/animations';
 import { TimelineEvent, TimelineEventType } from 'src/app/core/models/timeline-event';
 import { AddTimelineEvent } from './../../../core/+state/entity.actions';
 import { Store } from '@ngxs/store';
@@ -11,7 +12,7 @@ import * as moment from 'moment';
   styleUrls: ['./add-activity.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddActivityComponent implements OnInit {
+export class AddActivityComponent {
   @ViewChild('bottomSheet', {static: false}) bottomSheet: BottomSheetComponent;
 
   public selectedTab = 'activity';
@@ -28,19 +29,27 @@ export class AddActivityComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  ngOnInit() {}
-
   public selectTab(tab: string): void {
     this.selectedTab = tab;
   }
 
   public handleSubmit(event: TimelineEvent): void {
     this.store.dispatch(new AddTimelineEvent(event));
+    this.selectedTab = this.addActivityTabs.activity;
     this.bottomSheet.close();
   }
 
-  public diseaseDetected(): void {
+  public getSelectedColor(): string {
+    return 'sheet-tab--' + this.selectedTab;
+  }
 
+  public handleSheetClosed(): void {
+    this.selectedTab = this.addActivityTabs.activity;
+  }
+
+  public diseaseDetected(): void {
+    this.selectedTab = this.addActivityTabs.activity;
+    this.bottomSheet.close();
   }
 
   public checkIn(): void {
@@ -59,5 +68,4 @@ export class AddActivityComponent implements OnInit {
 
     this.handleSubmit(checkEvent);
   }
-
 }

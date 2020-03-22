@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="contactsList">
+  <ion-list *ngIf="contactsList.length > 0">
     <ion-item *ngFor="let contact of contactsList">
       <ion-avatar slot="start">
         <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
@@ -25,5 +25,5 @@
       <ion-checkbox slot="end" [(ngModel)]="contact.isSelected"></ion-checkbox>
     </ion-item>
   </ion-list>
-  <app-loader *ngIf="contactsList.length > 0" [isLoading]=true></app-loader>
+  <app-loader *ngIf="contactsList.length === 0" [isLoading]=true></app-loader>
 </ion-content>
