@@ -3,7 +3,7 @@
     &__title {
         font-weight: bold;
         padding-left: 1rem;
-        color: var(--text-color);
+        color: blue($color: #000000)
     }
 
     &__contact-select {

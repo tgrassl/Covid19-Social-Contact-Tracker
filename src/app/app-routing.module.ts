@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'contact-list',
+    loadChildren: () => import('./pages/contact-list/contact-list.module').then( m => m.ContactListPageModule)
   }
 ];
 @NgModule({

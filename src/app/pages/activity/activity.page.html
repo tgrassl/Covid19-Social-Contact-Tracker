@@ -3,11 +3,12 @@
     <ion-title>Aktivitätsverlauf</ion-title>
     <ion-grid *ngIf="(directContacts$ | async) as directContacts">
       <ion-row class="ion-align-items-center">
-        <ion-col size="6">
-          <div class="activity-toolbar__active">{{directContacts.length}} {{getInfoText(directContacts.length)}}</div>
+        <ion-col size="8" routerLink="/contact-list" class="activity-toolbar__active-button">
+          <div class="activity-toolbar__active-text">{{directContacts.length}} {{getInfoText(directContacts.length)}}</div>
+          <ion-icon name="chevron-forward"></ion-icon>
         </ion-col>
-        <ion-col size="6" class="ion-align-self-end">
-          <div class="activity-toolbar__contacts">
+        <ion-col size="4" class="ion-align-self-end">
+          <div class="activity-toolbar__contacts" routerLink="/contact-list">
             <ion-avatar *ngFor="let contact of directContacts.slice(0,3)">
               <img [src]="contact.thumbnail" onerror="this.style.display='none'">
             </ion-avatar>

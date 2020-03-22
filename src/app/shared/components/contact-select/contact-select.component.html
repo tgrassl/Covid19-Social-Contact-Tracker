@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="toolbar--default toolbar--center">
   <ion-toolbar class="contact-select">
     <ion-buttons slot="start">
       <ion-button (click)="dismiss()">
@@ -14,9 +14,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="page--default">
   <ion-list *ngIf="contactsList.length > 0">
-    <ion-item *ngFor="let contact of contactsList">
+    <ion-item *ngFor="let contact of contactsList" lines="full">
       <ion-avatar slot="start">
         <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
         <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail" onerror="this.style.display='none'">

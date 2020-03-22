@@ -4,13 +4,36 @@ ion-avatar {
 }
 
 .activity-toolbar {
-    &__active {
+    &__active-text {
         color: var(--primary);
         font-weight: bold;
+    }
+
+    &__active-button {
+        display: flex;
+        opacity: 1;
+        transition: opacity .1s ease-in;
+        -webkit-tap-highlight-color: transparent;
+
+        ion-icon {
+            align-self: center;
+            margin-left: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        &:hover {
+            opacity: .7;
+        }
     }
 
     &__contacts {
         display: flex;
         justify-content: flex-end;
+    }
+}
+
+ion-col, div {
+    &:focus {
+        outline: none;
     }
 }

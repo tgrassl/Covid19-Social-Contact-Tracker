@@ -9,11 +9,13 @@ export interface EntityStateModel {
   timeline: TimelineEvent[];
   medicalStatus?: MedicalStatus;
   directContacts?: PhoneContact[];
+  indirectContacts?: number;
 }
 
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
+    indirectContacts: 0,
     directContacts: [{
       phoneNumbers: null,
       displayName: 'Alex',
@@ -89,6 +91,11 @@ export class EntityState {
     return state.directContacts;
   }
 
+  @Selector()
+  static indirectContacts(state: EntityStateModel): number {
+    return state.indirectContacts;
+  }
+
   @Action(AddTimelineEvent)
   addTimelineEvent(ctx: StateContext<EntityStateModel>, action: AddTimelineEvent) {
     const state = ctx.getState();
@@ -99,6 +106,11 @@ export class EntityState {
     if (action.event.contacts) {
       const newDirectContacts = [...state.directContacts, ...action.event.contacts];
       ctx.patchState({ directContacts: newDirectContacts });
+    }
+
+    if (action.event.indirectContacts) {
+      const newInDirectContacts = state.indirectContacts + action.event.indirectContacts;
+      ctx.patchState({ indirectContacts: newInDirectContacts });
     }
   }
 

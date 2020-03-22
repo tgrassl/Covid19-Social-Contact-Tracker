@@ -1,0 +1,39 @@
+<ion-header class="toolbar--default">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Übersicht</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page--default">
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Statistik</ion-label>
+    </ion-item-divider>
+  
+    <ion-item lines="none">
+      <ion-label>Aktive Kontakte</ion-label>
+      <ion-text slot="end" color="primary"><b>{{(directContacts$ | async).length}}</b></ion-text>
+    </ion-item>
+    <ion-item lines="none" class="m-b-10">
+      <ion-label>Indirekte Kontakte</ion-label>
+      <ion-text slot="end" color="gray"><b>{{indirectContacts$ | async}}</b></ion-text>
+    </ion-item>
+    <ion-item-divider class="m-b-10">
+      <ion-label>Aktive Kontakte</ion-label>
+    </ion-item-divider>
+  </ion-item-group>
+
+  <ion-list *ngIf="(directContacts$ | async) as directContacts">
+    <ion-item *ngFor="let contact of directContacts; trackBy: identity" lines="full">
+      <ion-avatar slot="start">
+        <div class="avatar-fallback" *ngIf="!contact.thumbnail"></div>
+        <img [src]="contact.thumbnail | safe" *ngIf="contact.thumbnail" onerror="this.style.display='none'">
+      </ion-avatar>
+      <ion-label>{{contact.displayName}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <app-loader *ngIf="!(directContacts$ | async)" [isLoading]=true></app-loader>
+</ion-content>
