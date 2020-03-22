@@ -140,6 +140,10 @@ ion-item-divider {
   padding-left: 40px;
 }
 
+.searchbar-input-container.sc-ion-searchbar-ios {
+  height: 40px;
+}
+
 .item-bold {
   ion-label {
     font-weight: bold;

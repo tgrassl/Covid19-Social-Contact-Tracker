@@ -5,5 +5,39 @@
 </ion-header>
 
 <ion-content class="page--default">
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Allgemein</ion-label>
+    </ion-item-divider>
 
+    <ion-item lines="full">
+      <ion-label>Tägliche Erinnerung</ion-label>
+      <ion-checkbox slot="end" (ionChange)="handleNotificationSetting($event)" [checked]="notificationsEnabled">
+      </ion-checkbox>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Über</ion-label>
+    </ion-item-divider>
+    <ion-item lines="none">
+      <ion-label>Entwickler</ion-label>
+      <ion-text slot="end">Timon Grassl</ion-text>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>App Icon</ion-label>
+      <ion-text slot="end">Hea Poh Lin - Noun Project</ion-text>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Version</ion-label>
+      <ion-text slot="end">1.0.0</ion-text>
+    </ion-item>
+  </ion-item-group>
+
+  <div class="made-with-love">
+    Made with
+    <ion-icon name="heart"></ion-icon> 
+    for #WirvsVirusHackathon
+  </div>
 </ion-content>

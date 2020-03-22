@@ -1,3 +1,22 @@
 ion-toolbar {
     padding-left: 1rem;
 }
+
+ion-header {
+    border: none;
+}
+
+.made-with-love {
+    text-align: center;
+    opacity: 0.6;
+    margin: 2rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    ion-icon {
+        color: var(--red);
+    }
+}
