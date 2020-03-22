@@ -7,6 +7,7 @@ import { Store } from '@ngxs/store';
 import { BottomSheetComponent } from './../bottom-sheet/bottom-sheet.component';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-activity',
@@ -29,7 +30,7 @@ export class AddActivityComponent {
     this.bottomSheet.open();
   }
 
-  constructor(private store: Store, private modalCtrl: ModalController) { }
+  constructor(private store: Store, private modalCtrl: ModalController, private router: Router) { }
 
   public selectTab(tab: string): void {
     this.selectedTab = tab;
@@ -46,6 +47,7 @@ export class AddActivityComponent {
   }
 
   public handleSheetClosed(): void {
+    this.router.navigateByUrl('/tabs/activity');
     this.selectedTab = this.addActivityTabs.activity;
   }
 

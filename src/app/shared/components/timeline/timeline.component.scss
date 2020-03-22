@@ -92,3 +92,17 @@
 .virtual-item {
   z-index: 20;
 }
+
+.timeline-empty {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  &__title {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
