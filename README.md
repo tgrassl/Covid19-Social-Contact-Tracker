@@ -28,7 +28,7 @@ Außerdem hat der Nutzer die Möglichkeit sich eine tägliche Benachrichtigung s
 
 ## Tech Stack
 - [Angular 9](http://angular.io/)
-- [Angular 9](https://ionicframework.com/)
+- [Ionic](https://ionicframework.com/)
 - [NGXS](https://www.ngxs.io/)
 
 ## Lizenz
