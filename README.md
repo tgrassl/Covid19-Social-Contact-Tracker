@@ -4,6 +4,8 @@
 Android:
 [Android-APK Version-1.0.0](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
 
+Demo für iOS folgt.
+
 ## Ziel
 Jetzt ist mein Covid-19 Test positiv … aber wen habe ich die letzten 14 Tage genau getroffen? 
 Der Social Contact Tracker erlaubt das Tracken von Aktivitäten und die Benachrichtigung von direkten Kontakten bei Krankheitseintritt. 
