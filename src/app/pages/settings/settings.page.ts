@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalNotifications, ILocalNotification, ELocalNotificationTriggerUnit  } from '@ionic-native/local-notifications/ngx';
+import { ILocalNotification, LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-settings',

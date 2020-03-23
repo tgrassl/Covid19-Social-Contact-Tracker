@@ -1,11 +1,10 @@
-import { PhoneContact } from './../../core/models/phone-contact.model';
-import { RemoveDirectContact } from './../../core/+state/entity.actions';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { EntityState } from 'src/app/core/+state/entity.state';
-import { Observable } from 'rxjs';
-import { PhoneContact } from 'src/app/core/models/phone-contact.model';
+import { Component, ViewChild } from '@angular/core';
 import { IonList } from '@ionic/angular';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { EntityState } from 'src/app/core/+state/entity.state';
+import { RemoveDirectContact } from './../../core/+state/entity.actions';
+import { PhoneContact } from './../../core/models/phone-contact.model';
 
 @Component({
   selector: 'app-contact-list',

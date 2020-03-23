@@ -1,8 +1,8 @@
 {
-  "name": "social-contact-tracking",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "social-contact-tracker",
+  "version": "1.0.1",
+  "author": "Timon Grassl",
+  "homepage": "https://github.com/tgrassl/Covid19-Social-Contact-Tracker",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
