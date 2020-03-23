@@ -1,5 +1,9 @@
 ![](https://i.ibb.co/TvcGSNx/github.png)
 
+<a href="https://wirvsvirushackathon.org/">
+  <img src="https://i.ibb.co/ZzG24xB/Logo-Projekt-01.png" width="300px" height="auto">
+</a>
+
 ## Demo
 Android:
 [Android-APK Version-1.0.0](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
