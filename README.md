@@ -6,8 +6,8 @@
 
 ## Demo
 Android:
-[Android-APK Version-1.0.0](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
-oder von [Github Releases V-1.0.0](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.0)
+[Android-APK Version-1.0.1](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
+oder von [Github Releases V-1.0.1](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.1)
 
 Demo für iOS folgt.
 
@@ -25,6 +25,9 @@ Die Einreichung dafür ist auf [DevPost](https://devpost.com/software/social-con
 ## Funktionalität 
 Der Nutzer kann seine Aktivitäten und direkt getroffenen Kontakte in der App tracken und hat so eine Art Tagebuch für soziale Interaktionen. Falls nun eine Krankheit festgestellt wird können ein paar Krankheitsrelevante Daten erfasst werden und auf Wunsch werden alle aktiven Kontakte mit einer automatisch generierten Nachricht per SMS benachrichtigt.
 Außerdem hat der Nutzer die Möglichkeit sich eine tägliche Benachrichtigung senden zu lassen, damit er nicht vergisst seine Aktivitäten zu erfassen.
+
+### Benachrichtigung
+<img src="https://i.ibb.co/M9QrPd0/notify.png" width="500px" height="auto">
 
 ### Beispiel einer Hinweis-SMS
 ```
