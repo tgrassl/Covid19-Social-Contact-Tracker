@@ -3,6 +3,7 @@
 ## Demo
 Android:
 [Android-APK Version-1.0.0](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
+oder von [Github Releases V-1.0.0](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.0)
 
 Demo für iOS folgt.
 
