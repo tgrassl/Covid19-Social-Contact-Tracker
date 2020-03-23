@@ -13,6 +13,8 @@ Wie kann eine betroffene Person (positiv getestet oder Verdachtsfall) die Kontak
 
 **Die App wurde innerhalb von 48h für den [WirVsVirusHackathon](https://wirvsvirushackathon.org/) von mir designed und entwickelt.**
 
+Die Einreichung dafür ist auf [DevPost](https://devpost.com/software/social-contact-tracking-corona-tagebuch).
+
 ## Funktionalität 
 Der Nutzer kann seine Aktivitäten und direkt getroffenen Kontakte in der App tracken und hat so eine Art Tagebuch für soziale Interaktionen. Falls nun eine Krankheit festgestellt wird können ein paar Krankheitsrelevante Daten erfasst werden und auf Wunsch werden alle aktiven Kontakte mit einer automatisch generierten Nachricht per SMS benachrichtigt.
 Außerdem hat der Nutzer die Möglichkeit sich eine tägliche Benachrichtigung senden zu lassen, damit er nicht vergisst seine Aktivitäten zu erfassen.
