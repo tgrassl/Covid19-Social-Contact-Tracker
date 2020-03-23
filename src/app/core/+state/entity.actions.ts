@@ -1,3 +1,4 @@
+import { PhoneContact } from './../models/phone-contact.model';
 import { MedicalStatus } from './../models/medical-status';
 import { TimelineEvent } from './../models/timeline-event';
 
@@ -27,4 +28,9 @@ export class CompleteIntro {
 export class SetMedicalStatus {
   static readonly type = `${prefix} Set Medical Status`;
   constructor(public status: MedicalStatus) {}
+}
+
+export class RemoveDirectContact {
+  static readonly type = `${prefix} Remove Direct Contact`;
+  constructor(public contact: PhoneContact) {}
 }

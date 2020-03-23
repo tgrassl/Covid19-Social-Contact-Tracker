@@ -16,7 +16,11 @@ export class SettingsPage implements OnInit {
     led: '#3399ff',
     priority: 2,
     trigger: {
-      every: ELocalNotificationTriggerUnit.DAY
+      every: {
+        hour: 18,
+        minute: 0
+      },
+      count: 1,
     }
   };
 

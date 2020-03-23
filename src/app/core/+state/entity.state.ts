@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { TimelineEvent, TimelineEventType, TransportType } from '../models/timeline-event';
 import { MedicalStatus } from './../models/medical-status';
-import { AddTimelineEvent, CheckIn, CheckOut, SetMedicalStatus, CompleteIntro } from './entity.actions';
+import { AddTimelineEvent, CheckIn, CheckOut, SetMedicalStatus, CompleteIntro, RemoveDirectContact } from './entity.actions';
 import * as moment from 'moment';
 import { PhoneContact } from '../models/phone-contact.model';
 
@@ -107,5 +107,13 @@ export class EntityState {
   @Action(CompleteIntro, {cancelUncompleted: true})
   CompleteIntro(ctx: StateContext<EntityStateModel>) {
     ctx.patchState({ introCompleted: true });
+  }
+
+  @Action(RemoveDirectContact, {cancelUncompleted: true})
+  removeDirectContact(ctx: StateContext<EntityStateModel>, action: RemoveDirectContact) {
+    const state = ctx.getState();
+    const directContacts = state.directContacts;
+    const newDirectContacts = directContacts.filter(contact => contact.id !== action.contact.id);
+    ctx.patchState({ directContacts: newDirectContacts });
   }
 }
