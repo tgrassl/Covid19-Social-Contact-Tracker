@@ -1,0 +1,56 @@
+{
+    "general": {
+        "sngContact": "Kontakt",
+        "plrContact": "Kontakte",
+        "sngActive": "Aktiver",
+        "plrActive": "Aktive"
+    },
+    "tabs": {
+        "activity": "Aktivität",
+        "settings": "Einstellungen"
+    },
+    "pages": {
+        "activity": {
+            "title": "Aktivitätsverlauf"
+        },
+        "settings": {
+            "title": "Einstellungen",
+            "generalCategory": "Allgemein",
+            "dailyNotification": "Tägliche Erinnerung",
+            "about": "Über",
+            "dev": "Entwickler"
+        },
+        "list": {
+            "title": "Übersicht",
+            "destructiveAction": "Entfernen",
+            "stats": {
+                "title": "Statistik",
+                "active": "Aktive Kontakte",
+                "indirect": "Indirekte Kontakte"
+            }
+        },
+        "intro": {
+            "nextButtonText": "Weiter",
+            "acceptButtonText": "Akzeptieren",
+            "slide1": {
+                "title": "Tracke deine Aktivitäten und speichere welche Menschen direkt mit dir in Kontakt waren"
+            },
+            "slide2": {
+                "title": "Bei Krankheit werden deine gesammelten Kontakte automatisch benachrichtigt"
+            },
+            "slide3": {
+                "title": "Der Social Contact Tracker benötigen folgende Berechtigungen",
+                "permissions": {
+                    "contacts": {
+                        "name": "Kontakte",
+                        "reason": "Wird benötigt um Kontakte auszulesen. Daten werden nur auf dem Gerät gespeichert."
+                    },
+                    "sms": {
+                        "name": "SMS",
+                        "reason": "Wird benötigt um Kontakte bei Krankheit zu benachrichtigen."
+                    }
+                }
+            }
+        }
+    }
+}

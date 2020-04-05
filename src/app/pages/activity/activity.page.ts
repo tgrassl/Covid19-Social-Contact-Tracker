@@ -1,5 +1,6 @@
+import { AppState } from './../../+state/app.state';
 import { PhoneContact } from './../../core/models/phone-contact.model';
-import { Select } from '@ngxs/store';
+import { Select, State, Store } from '@ngxs/store';
 import { EntityState } from './../../core/+state/entity.state';
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
@@ -20,11 +21,11 @@ export class ActivityPage implements AfterViewInit, OnDestroy {
 
   private scrollSub: Subscription;
 
-  constructor(private statusBar: StatusBar) { }
+  constructor(private statusBar: StatusBar, private store: Store) { }
 
   public ngAfterViewInit(): void {
     this.scrollToBottom();
-    this.scrollSub = this.timeline$.subscribe(timeline => {
+    this.scrollSub = this.timeline$.subscribe(() => {
       this.scrollToBottom();
     });
   }
@@ -39,7 +40,8 @@ export class ActivityPage implements AfterViewInit, OnDestroy {
   }
 
   public getInfoText(length: number): string {
-    return length !== 1 ? 'Aktive Kontakte' : 'Aktiver Kontakt';
+    const generalLang = this.store.selectSnapshot(AppState.lang);
+    return length !== 1 ? `${generalLang.plrActive} ${generalLang.plrContact}` : `${generalLang.sngActive} ${generalLang.sngContact}`;
   }
 
   private scrollToBottom(): void {

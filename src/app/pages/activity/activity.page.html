@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="activity-toolbar">
-    <ion-title>Aktivitätsverlauf</ion-title>
+    <ion-title>{{'pages.activity.title' | translate}}</ion-title>
     <ion-grid *ngIf="(directContacts$ | async) as directContacts">
       <ion-row class="ion-align-items-center">
         <ion-col size="8" routerLink="/contact-list" class="activity-toolbar__active-button">
