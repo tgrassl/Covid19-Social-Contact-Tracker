@@ -8,18 +8,18 @@
           </ion-button>
         </ion-col>
         <ion-col size="6" class="ion-align-self-center">
-          <ion-title>Kontakte auswählen</ion-title>
+          <ion-title>{{'contactSelect.title' | translate}}</ion-title>
         </ion-col>
         <ion-col size="3" class="ion-align-self-end" class="contact-select--primary">
           <ion-button (click)="dismiss()">
-            Fertig
+            {{'doneText' | translate}}
           </ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="12">
-          <ion-searchbar mode="ios" placeholder="Kontakte suchen" debounce="100" inputmode="text" type="text"
+          <ion-searchbar mode="ios" [placeholder]="'contactSelect.placeholder' | translate" debounce="100" inputmode="text" type="text"
             showCancelButton="never" (ionChange)="handleSearch($event)"></ion-searchbar>
         </ion-col>
       </ion-row>

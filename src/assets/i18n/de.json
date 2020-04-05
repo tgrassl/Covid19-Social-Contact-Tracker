@@ -84,6 +84,10 @@
         "send": "Ja",
         "dontSend": "Nein"
     },
+    "contactSelect": {
+        "title": "Kontakte auswählen",
+        "placeholder": "Kontakte suchen"
+    },
     "timeline": {
         "emptyText": "Aktivitäten werden hier aufgelistet",
         "travel": {
