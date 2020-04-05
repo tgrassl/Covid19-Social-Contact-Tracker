@@ -4,15 +4,17 @@
       <div class="disease-check-header__close" (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
       </div>
-      <h4 class="disease-check-header__title">Krankheit</h4>
+      <h4 class="disease-check-header__title">{{'diseaseCheck.title' | translate}}</h4>
     </div>
     <div class="disease-check__content">
       <form [formGroup]="diseaseFormGroup">
         <ion-list lines="none">
           <ion-item>
-            <ion-label class="label-thin">Art der Krankheit</ion-label>
-            <ion-select placeholder="Auswählen" formControlName="diseaseType" okText="Ok" cancelText="Abbrechen">
-              <ion-select-option [value]="type.value" *ngFor="let type of diseaseTypes | keyvalue">{{type.value}}
+            <ion-label class="label-thin">{{'diseaseCheck.type' | translate}}</ion-label>
+            <ion-select [placeholder]="'selectPlaceholder' | translate" formControlName="diseaseType"
+            [okText]="'okText' | translate"
+            [cancelText]="'cancelText' | translate">
+              <ion-select-option [value]="type.value" *ngFor="let type of diseaseTypes | keyvalue">{{'general.diseaseTypes.' + type.value | translate }}
               </ion-select-option>
             </ion-select>
           </ion-item>
@@ -21,18 +23,18 @@
             <ion-row>
               <ion-col size="12">
                 <div class="disease-check__wrap-item">
-                  <ion-text>
-                    Wann traten erste Symptome auf?
-                  </ion-text>
+                  <ion-text>{{'diseaseCheck.firstSymptoms' | translate}}</ion-text>
                 </div>
               </ion-col>
             </ion-row>
-            <ion-datetime [monthShortNames]="monthNames" displayFormat="DD.MM.YY HH:mm" pickerFormat="DD.MMM.YYYY HH:mm" placeholder="Datum" cancelText="Abbrechen" doneText="Fertig"
+            <ion-datetime [attr.monthShortNames]="translate.currentLang === 'de' ? monthNames : null" displayFormat="DD.MM.YY HH:mm" pickerFormat="DD.MMM.YYYY HH:mm" [placeholder]="'datePlaceholder' | translate" 
+            [cancelText]="'cancelText' | translate"
+            [doneText]="'doneText' | translate"
               formControlName="timeFirstSymptoms"></ion-datetime>
           </ion-item>
 
           <ion-item>
-            <ion-label>Arzt aufgesucht?</ion-label>
+            <ion-label>{{'diseaseCheck.doctor' | translate}}</ion-label>
             <ion-checkbox slot="end" formControlName="visitedDoctor" [checked]="false"></ion-checkbox>
           </ion-item>
         </ion-list>
@@ -44,12 +46,12 @@
             </ion-col>
             <ion-col size="6" class="disease-check-inform__button disease-check-inform__button--secondary">
               <ion-button appPreventDoubleClick (throttledClick)="submitForm(false)" [throttleTime]="700">
-                Nein
+                {{'diseaseCheck.dontSend' | translate}}
               </ion-button>
             </ion-col>
             <ion-col size="6" class="ion-align-self-end disease-check-inform__button">
               <ion-button appPreventDoubleClick (throttledClick)="submitForm(true)" [throttleTime]="700">
-                Ja
+                {{'diseaseCheck.send' | translate}}
               </ion-button>
             </ion-col>
           </ion-row>

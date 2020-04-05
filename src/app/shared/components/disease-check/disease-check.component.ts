@@ -11,6 +11,8 @@ import { DiseaseType } from 'src/app/core/models/medical-status';
 import { PhoneContact } from 'src/app/core/models/phone-contact.model';
 import { SetMedicalStatus, AddTimelineEvent } from './../../../core/+state/entity.actions';
 import { MedicalStatus } from './../../../core/models/medical-status';
+import { TranslateService } from '@ngx-translate/core';
+import { AppState } from 'src/app/+state/app.state';
 
 @Component({
   selector: 'app-disease-check',
@@ -27,13 +29,17 @@ export class DiseaseCheckComponent implements OnInit {
     ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
 
   private loader: any;
+  private lang: any;
 
   constructor(
+    public translate: TranslateService,
     private modalCtrl: ModalController,
     private toastCtrl: ToastController,
     private loaderCtrl: LoadingController,
     private sms: SMS,
-    private store: Store) { }
+    private store: Store) {
+      translate.get('diseaseCheck.misc').toPromise().then(text => this.lang = text);
+  }
 
   ngOnInit() {
     this.diseaseFormGroup = new FormGroup({
@@ -60,7 +66,7 @@ export class DiseaseCheckComponent implements OnInit {
       if (notifyContacts) {
         this.notifyAllDirectContacts(medicalStatus).then(async (sent: boolean) => {
           if (sent) {
-            await this.presentToast('Kontakte wurden informiert!', false);
+            await this.presentToast(this.lang.informed, false);
           }
         });
       }
@@ -72,27 +78,27 @@ export class DiseaseCheckComponent implements OnInit {
   }
 
   public getInformText(length): string {
-    return `${length !== 1 ? 'Sollen' : 'Soll'} ${length !== 1 ? 'deine' : 'dein'} 
-    <b>${length}</b> ${length !== 1 ? 'Kontakte' : 'Kontakt'} benachrichtigt werden?`;
+    return this.lang.informText.replace('{{amount}}', length);
   }
 
-  public getDiseaseTypeName(status: MedicalStatus): string {
-    const diseaseType = status.diseaseType;
-    return (diseaseType === DiseaseType.other) ? 'einer Krankheit' : 'der Krankheit ' + diseaseType;
+  async getDiseaseTypeName(status: MedicalStatus): Promise<string> {
+    const diseaseType = await this.translate.get('general.diseaseTypes.' + status.diseaseType).toPromise();
+    return (status.diseaseType === DiseaseType.other) ? this.lang.otherDisease : this.lang.specificDisease + diseaseType;
   }
 
   public getDoctorText(status: MedicalStatus): string {
     const visitedDoctor = status.visitedDoctor;
-    return visitedDoctor ? 'bereits beim Arzt' : 'noch nicht beim Arzt';
+    return visitedDoctor ? this.lang.visitedDoctor : this.lang.notVisitedDoctor;
   }
 
   async notifyAllDirectContacts(medicalStatus: MedicalStatus): Promise<boolean> {
-    const message = `Hinweis:\nIch habe seit dem ${moment(medicalStatus.timeFirstSymptoms).format('DD.MM.YYYY')} ` +
-      `Symptome ${this.getDiseaseTypeName(medicalStatus)}. ` +
-      `Ich war ${this.getDoctorText(medicalStatus)}.\n` +
-      `Bitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\n` +
-      `Diese Nachricht wurde automatisch vom Social Contact Tracker erstellt. ` +
-      `Mehr Infos darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch`;
+    const message = await this.translate.get('diseaseCheck.message', {
+      time: moment(medicalStatus.timeFirstSymptoms).format('DD.MM.YYYY'),
+      symptoms: await this.getDiseaseTypeName(medicalStatus),
+      doctor: this.getDoctorText(medicalStatus)
+    }).toPromise();
+
+    console.log(message);
 
     const directContacts = this.store.selectSnapshot(EntityState.directContacts);
     const smsOptions: SmsOptions = {
@@ -133,7 +139,7 @@ export class DiseaseCheckComponent implements OnInit {
   }
 
   private getLoaderStatus(doneAmount: number, total: number): string {
-    return `${doneAmount}/${total} Kontakte informiert`;
+    return `${doneAmount}/${total} ${this.lang.loaderStatus}`;
   }
 
   async presentToast(message: string, isError: boolean) {

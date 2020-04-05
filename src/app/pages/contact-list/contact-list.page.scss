@@ -1,7 +1,11 @@
 ion-header {
-    border: none;
+  border: none;
 }
 
-ion-item-option ion-icon {
+ion-item-option {
+  text-transform: none;
+  
+  ion-icon {
     font-size: 1.6rem;
+  }
 }

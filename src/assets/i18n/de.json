@@ -5,8 +5,19 @@
         "sngActive": "Aktiver",
         "plrActive": "Aktive",
         "sngPerson": "Person",
-        "plrPerson": "Personen"
+        "plrPerson": "Personen",
+        "diseaseTypes": {
+            "covid-19": "Covid-19",
+            "influenza": "Influenza (Grippe)",
+            "other": "Andere",
+            "default": "Krankheit"
+        }
     },
+    "okText": "Ok",
+    "cancelText": "Abbrechen",
+    "doneText": "Fertig",
+    "selectPlaceholder": "Auswählen",
+    "datePlaceholder": "Datum",
     "tabs": {
         "activity": "Aktivität",
         "settings": "Einstellungen"
@@ -54,6 +65,24 @@
                 }
             }
         }
+    },
+    "diseaseCheck": {
+        "title": "Krankheit",
+        "type": "Art der Krankheit",
+        "message": "Hinweis:\nIch habe seit dem {{time}} Symptome {{symptoms}}. Ich war {{doctor}}.\nBitte achte darauf ob du eventuell auch Symptome feststellst und versuche niemanden durch Unachtsamkeit zu infizieren.\n\nDiese Nachricht wurde automatisch vom Social Contact Tracker erstellt. Mehr Infos darüber erhältst du hier: https://devpost.com/software/social-contact-tracking-corona-tagebuch",
+        "misc": {
+            "informed": "Kontakte wurden informiert!",
+            "loaderStatus": "Kontakte informiert",
+            "visitedDoctor": "bereits beim Arzt",
+            "notVisitedDoctor": "noch nicht beim Arzt",
+            "informText": "Sollen deine <b>{{amount}}</b> Kontakte benachrichtigt werden?",
+            "otherDisease": "einer Krankheit",
+            "specificDisease": "der Krankheit "
+        },
+        "firstSymptoms": "Wann traten erste Symptome auf?",
+        "doctor": "Arzt aufgesucht?",
+        "send": "Ja",
+        "dontSend": "Nein"
     },
     "timeline": {
         "emptyText": "Aktivitäten werden hier aufgelistet",

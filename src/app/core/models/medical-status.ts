@@ -8,7 +8,7 @@ export interface MedicalStatus {
 }
 
 export enum DiseaseType {
-    covid19 = 'Covid-19',
-    influenza = 'Influenza (Grippe)',
-    other = 'Andere'
+    covid19 = 'covid-19',
+    influenza = 'influenza',
+    other = 'other'
 }
