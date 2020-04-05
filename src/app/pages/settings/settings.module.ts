@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +16,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     CommonModule,
     FormsModule,
     IonicModule,
-    SettingsPageRoutingModule
+    SettingsPageRoutingModule,
+    SharedModule,
   ],
   declarations: [SettingsPage],
   providers: [LocalNotifications]

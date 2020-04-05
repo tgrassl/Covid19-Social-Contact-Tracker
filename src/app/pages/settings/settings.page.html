@@ -1,17 +1,17 @@
 <ion-header class="toolbar--default">
   <ion-toolbar>
-    <ion-title>Einstellungen</ion-title>
+    <ion-title>{{'pages.settings.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="page--default">
   <ion-item-group>
     <ion-item-divider>
-      <ion-label>Allgemein</ion-label>
+      <ion-label>{{'pages.settings.generalCategory' | translate}}</ion-label>
     </ion-item-divider>
 
     <ion-item lines="full">
-      <ion-label>Tägliche Erinnerung</ion-label>
+      <ion-label>{{'pages.settings.dailyNotification' | translate}}</ion-label>
       <ion-checkbox slot="end" (ionChange)="handleNotificationSetting($event)" [checked]="notificationsEnabled">
       </ion-checkbox>
     </ion-item>
@@ -19,10 +19,10 @@
 
   <ion-item-group>
     <ion-item-divider>
-      <ion-label>Über</ion-label>
+      <ion-label>{{'pages.settings.about' | translate}}</ion-label>
     </ion-item-divider>
     <ion-item lines="none">
-      <ion-label>Entwickler</ion-label>
+      <ion-label>{{'pages.settings.dev' | translate}}</ion-label>
       <ion-text slot="end">Timon Grassl</ion-text>
     </ion-item>
     <ion-item lines="none">
