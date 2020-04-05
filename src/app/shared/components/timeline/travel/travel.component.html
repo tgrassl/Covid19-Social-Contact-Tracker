@@ -1,14 +1,13 @@
 <div class="timeline__content timeline__content--grey travel">
-  <div class="travel__title">
-    Mit dem <span>{{event.transportType}}</span> unterwegs
-  </div>
+  <div class="travel__title" 
+  [innerHTML]="'timeline.travel.title' | translate:{type: event.transportType}"></div>
   <div class="travel__time">
     <ion-icon name="time"></ion-icon>
-    <span><b>{{event.from}} - {{event.to}} Uhr</b></span>
+    <span [innerHTML]="'timeline.travel.time' | translate:{from: event.from, to: event.to}"></span>
   </div>
 
   <div class="travel__contacts">
     <ion-icon name="people"></ion-icon>
-    <span>ca. <b>{{event.indirectContacts}}</b> Mitfahrer</span>
+    <span [innerHTML]="'timeline.travel.contacts' | translate:{contacts: event.indirectContacts}"></span>
   </div>
 </div>

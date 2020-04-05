@@ -1,6 +1,4 @@
 <div class="timeline__content timeline__content--grey note">
-  <div class="note__title">
-    Notiz um {{event.timestamp | amDateFormat: 'HH:mm'}} Uhr
-  </div>
+  <div class="note__title" [innerHTML]="'timeline.note.title' | translate:{time: (event.timestamp | amDateFormat: 'HH:mm')}"></div>
   <p>{{event.content}}</p>
 </div>

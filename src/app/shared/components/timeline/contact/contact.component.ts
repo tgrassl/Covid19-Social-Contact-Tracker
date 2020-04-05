@@ -1,5 +1,7 @@
+import { Store } from '@ngxs/store';
 import { Component, Input } from '@angular/core';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
+import { AppState } from 'src/app/+state/app.state';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +11,7 @@ import { TimelineEvent } from 'src/app/core/models/timeline-event';
 export class ContactComponent {
   @Input() event: TimelineEvent;
   
-  constructor() { }
+  constructor(private store: Store) { }
 
   public getContactName(): string {
     const firstContact = this.event.contacts[0];
@@ -25,6 +27,7 @@ export class ContactComponent {
   }
 
   public getPersonWording(length): string {
-    return length > 1 ? 'Personen' : 'Person';
+    const generalLang = this.store.selectSnapshot(AppState.lang);
+    return length > 1 ? generalLang.plrPerson : generalLang.sngPerson;
   }
 }

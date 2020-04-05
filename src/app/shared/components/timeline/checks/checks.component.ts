@@ -12,10 +12,6 @@ export class ChecksComponent {
   @Input() checkIn: boolean;
   
   constructor() { }
-  
-  public getCheckType(): string {
-    return this.checkIn ? 'betreten' : 'verlassen';
-  }
 
   public getCheckIcon(): string {
     return this.checkIn ? 'home-sharp' : 'log-out';

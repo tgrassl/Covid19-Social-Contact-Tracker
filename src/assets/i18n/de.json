@@ -3,7 +3,9 @@
         "sngContact": "Kontakt",
         "plrContact": "Kontakte",
         "sngActive": "Aktiver",
-        "plrActive": "Aktive"
+        "plrActive": "Aktive",
+        "sngPerson": "Person",
+        "plrPerson": "Personen"
     },
     "tabs": {
         "activity": "Aktivität",
@@ -51,6 +53,32 @@
                     }
                 }
             }
+        }
+    },
+    "timeline": {
+        "emptyText": "Aktivitäten werden hier aufgelistet",
+        "travel": {
+            "title": "Mit dem <span>{{type}}</span> unterwegs",
+            "time": "<b>{{from}} - {{to}} Uhr</b>",
+            "contacts": "ca. <b>{{contacts}}</b> Mitfahrer"
+        },
+        "note": {
+            "title": "Notiz um {{time}} Uhr"
+        },
+        "disease": {
+            "text": "<b>{{type}}</b> mit ersten Symptomen am <b>{{time}}</b> festgestellt"
+        },
+        "contact": {
+            "single": "um <b>{{time}} Uhr</b> getroffen",
+            "multiple": "und <b>{{amount}}</b> weitere {{wording}}"
+        },
+        "checks": {
+            "enter": "<b>Zuhause</b> um <b>{{time}} Uhr</b> betreten",
+            "leave": "<b>Zuhause</b> um <b>{{time}} Uhr</b> verlassen"
+        },
+        "activity": {
+            "time": "<b>{{from}} - {{to}} Uhr</b>",
+            "contacts": "Mit ca. <b>{{contacts}}</b> Personen in Kontakt"
         }
     }
 }

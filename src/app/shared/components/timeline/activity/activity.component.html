@@ -4,11 +4,11 @@
   </div>
   <div class="activity__time">
     <ion-icon name="time"></ion-icon>
-    <span><b>{{event.from}} - {{event.to}} Uhr</b></span>
+    <span [innerHTML]="'timeline.activity.time' | translate:{from: event.from, to: event.to}"></span>
   </div>
 
   <div class="activity__contacts">
     <ion-icon name="people"></ion-icon>
-    <span>Mit ca. <b>{{event.indirectContacts}}</b> Personen in Kontakt</span>
+    <span [innerHTML]="'timeline.checks.contacts' | translate:{contacts: event.indirectContacts}"></span>
   </div>
 </div>
