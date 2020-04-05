@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +13,8 @@ import { IntroPage } from './intro.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    IntroPageRoutingModule
+    IntroPageRoutingModule,
+    SharedModule
   ],
   declarations: [IntroPage],
   providers: [AndroidPermissions, StatusBar]

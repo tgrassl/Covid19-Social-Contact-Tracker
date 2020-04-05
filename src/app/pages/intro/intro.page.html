@@ -3,14 +3,14 @@
     <ion-grid>
       <ion-row class="intro-slide">
         <ion-col size="12">
-          <div class="intro-slide__title" >Tracke deine Aktivitäten und speichere welche Menschen direkt mit dir in Kontakt waren</div>
+          <div class="intro-slide__title">{{'pages.intro.slide1.title' | translate}}</div>
         </ion-col>
         <ion-col size="12">
           <img class="intro-slide__image" src="/assets/svg/distancing.svg">
         </ion-col>
         <ion-col size="12">
           <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
-            Weiter
+            {{'pages.intro.nextButtonText' | translate}}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
           </ion-button>
         </ion-col>
@@ -21,7 +21,7 @@
     <ion-grid>
       <ion-row class="intro-slide">
         <ion-col size="12">
-          <div class="intro-slide__title">Bei Krankheit werden deine gesammelten Kontakte automatisch benachrichtigt</div>
+          <div class="intro-slide__title">{{'pages.intro.slide2.title' | translate}}</div>
         </ion-col>
         <ion-col size="12">
           <img class="intro-slide__image" src="/assets/svg/medicine.svg">
@@ -29,7 +29,7 @@
         </ion-col>
         <ion-col size="12">
           <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
-            Weiter
+            {{'pages.intro.nextButtonText' | translate}}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
           </ion-button>
         </ion-col>
@@ -40,23 +40,23 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <div class="intro-slide__title">Der Social Contact Tracker benötigen folgende Berechtigungen</div>
+          <div class="intro-slide__title">{{'pages.intro.slide3.title' | translate}}</div>
         </ion-col>
       </ion-row>
 
       <ion-row class="intro-permission-item" *ngFor="let permission of neededPermissions">
         <ion-col size="12">
-          <div class="intro-permission-item__title">{{permission.name}}</div>
+          <div class="intro-permission-item__title">{{ getTranslationPath(permission.langKey, 'name') | translate }}</div>
         </ion-col>
         <ion-col size="12">
-          <p class="intro-permission-item__reason">{{permission.reason}}</p>
+          <p class="intro-permission-item__reason">{{ getTranslationPath(permission.langKey, 'reason') | translate }}</p>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="12">
           <ion-button class="intro-slide__next" color="primary" shape="round" (click)="nextSlide()">
-            Akzeptieren
+            {{'pages.intro.acceptButtonText' | translate}}
             <ion-icon slot="end" name="arrow-forward"></ion-icon>
           </ion-button>
         </ion-col>

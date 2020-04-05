@@ -23,13 +23,11 @@ export class IntroPage implements AfterViewInit {
 
   public neededPermissions = [
     {
-      reason: 'Wird benötigt um Kontakte auszulesen. Daten werden nur auf dem Gerät gespeichert.',
-      name: 'Kontakte',
+      langKey: 'contacts',
       permission: this.androidPermissions.PERMISSION.READ_CONTACTS
     },
     {
-      reason: 'Wird benötigt um Kontakte bei Krankheit zu benachrichtigen.',
-      name: 'SMS',
+      langKey: 'sms',
       permission: this.androidPermissions.PERMISSION.SEND_SMS
     }
   ];
@@ -42,7 +40,7 @@ export class IntroPage implements AfterViewInit {
     private androidPermissions: AndroidPermissions,
     private statusBar: StatusBar) { }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.ionSlides.lockSwipes(true);
   }
 
@@ -51,7 +49,7 @@ export class IntroPage implements AfterViewInit {
     this.statusBar.backgroundColorByHexString('#FBFBFB');
   }
 
-  nextSlide() {
+  public nextSlide(): void {
     this.ionSlides.isEnd().then(isEnd => {
       if (isEnd) {
         this.checkPermissions().then(() => {
@@ -79,8 +77,12 @@ export class IntroPage implements AfterViewInit {
     }
   }
 
-  prevSlide() {
+  public prevSlide(): void {
     this.ionSlides.lockSwipes(false);
     this.ionSlides.slidePrev().then(() => this.ionSlides.lockSwipes(true));
+  }
+
+  public getTranslationPath(langKey: string, subKey: string): string {
+    return 'pages.intro.slide3.permissions.' + langKey + '.' + subKey;
   }
 }
