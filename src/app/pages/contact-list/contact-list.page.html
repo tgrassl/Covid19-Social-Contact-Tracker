@@ -3,26 +3,26 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Übersicht</ion-title>
+    <ion-title>{{'pages.list.title' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="page--default">
   <ion-item-group>
     <ion-item-divider>
-      <ion-label>Statistik</ion-label>
+      <ion-label>{{'pages.list.stats.title' | translate}}</ion-label>
     </ion-item-divider>
   
     <ion-item lines="none">
-      <ion-label>Aktive Kontakte</ion-label>
+      <ion-label>{{'pages.list.stats.active' | translate}}</ion-label>
       <ion-text slot="end" color="primary"><b>{{(directContacts$ | async).length}}</b></ion-text>
     </ion-item>
     <ion-item lines="none" class="m-b-10">
-      <ion-label>Indirekte Kontakte</ion-label>
+      <ion-label>{{'pages.list.stats.indirect' | translate}}</ion-label>
       <ion-text slot="end" color="gray"><b>{{indirectContacts$ | async}}</b></ion-text>
     </ion-item>
     <ion-item-divider class="m-b-10">
-      <ion-label>Aktive Kontakte</ion-label>
+      <ion-label>{{'pages.list.stats.active' | translate}}</ion-label>
     </ion-item-divider>
   </ion-item-group>
 
@@ -38,7 +38,8 @@
       </ion-item>
       <ion-item-options slot="icon-only">
         <ion-item-option color="danger" (click)="removeContactFromList(contact)">
-          <ion-icon slot="end" name="remove-circle-outline"></ion-icon>
+          {{'pages.list.destructiveAction' | translate}}
+          <!-- //<ion-icon slot="end" name="remove-circle-outline"></ion-icon> -->
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>

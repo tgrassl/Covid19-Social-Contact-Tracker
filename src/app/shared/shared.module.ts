@@ -23,6 +23,7 @@ import { NoteComponent } from './components/timeline/note/note.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TravelComponent } from './components/timeline/travel/travel.component';
 import { PreventDoubleClickDirective } from './directives/prevent-double-click.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { PreventDoubleClickDirective } from './directives/prevent-double-click.d
     MomentModule,
     ReactiveFormsModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    TranslateModule
   ],
   exports: [
     LoaderComponent,
@@ -70,7 +72,8 @@ import { PreventDoubleClickDirective } from './directives/prevent-double-click.d
     ActivityFormComponent,
     ContactSelectComponent,
     DiseaseCheckComponent,
-    DiseaseComponent
+    DiseaseComponent,
+    TranslateModule
   ],
   providers: [StatusBar, SMS]
 })
