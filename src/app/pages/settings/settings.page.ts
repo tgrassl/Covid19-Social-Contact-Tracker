@@ -1,3 +1,6 @@
+import { SetGeneralLang } from './../../+state/app.actions';
+import { Store } from '@ngxs/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { ILocalNotification, LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
@@ -24,9 +27,17 @@ export class SettingsPage implements OnInit {
     }
   };
 
+  private langMap = {
+    en: 'English (EN)',
+    de: 'Deutsch (DE)'
+  };
+
   public notificationsEnabled = false;
 
-  constructor(private localNotifications: LocalNotifications) { }
+  constructor(
+    private localNotifications: LocalNotifications, 
+    private store: Store,
+    public translate: TranslateService) { }
 
   ngOnInit() {
     this.checkIfNotificationsEnabled();
@@ -56,4 +67,16 @@ export class SettingsPage implements OnInit {
     }
   }
 
+  public getLanguages(): string[] {
+    return this.translate.getLangs();
+  }
+
+  public handleLanguageSelected(event): void {
+    this.translate.use(event.detail.value);
+    this.store.dispatch(new SetGeneralLang());
+  }
+
+  public getFormattedLang(lang: string): string {
+    return this.langMap[lang];
+  }
 }

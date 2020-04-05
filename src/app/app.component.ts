@@ -1,9 +1,11 @@
+import { Store } from '@ngxs/store';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
+import { SetGeneralLang } from './+state/app.actions';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,25 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    translate: TranslateService
+    private store: Store,
+    private translate: TranslateService
   ) {
     this.initializeApp();
     translate.setDefaultLang('de');
-    translate.use('de');
+    translate.onLangChange.subscribe(() => {
+      this.store.dispatch(new SetGeneralLang());
+    });
+
+    const browserLang = translate.getBrowserLang();
+    if (browserLang) {
+      if (translate.getLangs().includes(browserLang)) {
+        translate.use(browserLang);
+      } else {
+        translate.use('en');
+      }
+    } else {
+      translate.use('de');
+    }
   }
 
   initializeApp() {

@@ -6,11 +6,17 @@
         "plrActive": "Aktive",
         "sngPerson": "Person",
         "plrPerson": "Personen",
+        "today": "Heute",
         "diseaseTypes": {
             "covid-19": "Covid-19",
             "influenza": "Influenza (Grippe)",
             "other": "Andere",
             "default": "Krankheit"
+        },
+        "transportTypes": {
+            "car": "Auto",
+            "train": "Zug",
+            "bus": "Bus"
         }
     },
     "okText": "Ok",
@@ -18,6 +24,7 @@
     "doneText": "Fertig",
     "selectPlaceholder": "Auswählen",
     "datePlaceholder": "Datum",
+    "timePlaceholder": "Zeit wählen",
     "tabs": {
         "activity": "Aktivität",
         "settings": "Einstellungen"
@@ -30,6 +37,7 @@
             "title": "Einstellungen",
             "generalCategory": "Allgemein",
             "dailyNotification": "Tägliche Erinnerung",
+            "language": "Sprache",
             "about": "Über",
             "dev": "Entwickler"
         },
@@ -112,6 +120,45 @@
         "activity": {
             "time": "<b>{{from}} - {{to}} Uhr</b>",
             "contacts": "Mit ca. <b>{{contacts}}</b> Personen in Kontakt"
+        }
+    },
+    "addActivity": {
+        "title": "Aktivität erfassen",
+        "disease": "Krankheit festgestellt",
+        "checkIn": "Check In",
+        "checkOut": "Check Out",
+        "tabs": {
+            "transport": "Unterwegs",
+            "contact": "Kontakt",
+            "note": "Notiz",
+            "activity": "Aktivität"
+        },
+        "forms": {
+            "transport": {
+                "passengerTitle": "Wie viele Mitfahrer?",
+                "passengerPlaceholder": "Anzahl indirekter Kontakte",
+                "type": "Transportmittel",
+                "from": "Von",
+                "to": "Bis"
+            },
+            "contact": {
+                "title": "Kontakte besucht",
+                "contactSelect": "Welche Kontakte?",
+                "contactPlaceholder": "Kontakte auswählen",
+                "time": "Uhrzeit"
+            },
+            "note": {
+                "title": "Notiz",
+                "placeholder": "Notiz hier eingeben..."
+            },
+            "activity": {
+                "desc": "Was hast du gemacht?",
+                "descPlaceholder": "Beschreibung der Aktivität",
+                "contactAmount": "Wie viele Pers. waren in der Nähe?",
+                "contactPlaceholder": "Anzahl indirekter Kontakte",
+                "from": "Von",
+                "to": "Bis"
+            }
         }
     }
 }
