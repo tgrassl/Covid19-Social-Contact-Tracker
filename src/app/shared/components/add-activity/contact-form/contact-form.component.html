@@ -1,8 +1,8 @@
 <form [formGroup]="contactFormGroup">
-  <div class="contact-form__title">Kontakte besucht</div>
+  <div class="contact-form__title">{{'addActivity.forms.contact.title' | translate}}</div>
 
   <ion-item lines="full" button (click)="showContactSelect()">
-      <ion-label>Welche Kontakte?</ion-label>
+      <ion-label>{{'addActivity.forms.contact.contactSelect' | translate}}</ion-label>
       <ion-text 
       slot="end" 
       class="contact-form__contact-select" 
@@ -12,12 +12,13 @@
   </ion-item>
 
   <ion-item>
-    <ion-label>Uhrzeit</ion-label>
+    <ion-label>{{'addActivity.forms.contact.time' | translate}}</ion-label>
     <ion-datetime 
     displayFormat="HH:mm"
-    placeholder="Zeit wählen" 
-    cancelText="Abbrechen" 
-    doneText="Fertig" formControlName="from"></ion-datetime>
+    [placeholder]="'timePlaceholder' | translate" 
+    [cancelText]="'cancelText' | translate" 
+    [doneText]="'doneText' | translate" 
+    formControlName="from"></ion-datetime>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="contactFormGroup.valid" (click)="submitForm()">

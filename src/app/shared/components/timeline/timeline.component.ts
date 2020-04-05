@@ -1,9 +1,12 @@
+import { TranslateService } from '@ngx-translate/core';
+import { Store } from '@ngxs/store';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import * as moment from 'moment';
 import 'moment/locale/de';
 import { Moment } from 'moment';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
 import { TimelineEventType } from './../../../core/models/timeline-event';
+import { AppState } from 'src/app/+state/app.state';
 
 @Component({
   selector: 'app-timeline',
@@ -25,7 +28,7 @@ export class TimelineComponent implements OnInit {
     disease: 'red'
   };
 
-  constructor() { }
+  constructor(private store: Store, private translate: TranslateService) { }
 
   ngOnInit() {}
 
@@ -49,8 +52,9 @@ export class TimelineComponent implements OnInit {
   }
 
   public getDateFormat(day: Moment): string {
+    const generalLang = this.store.selectSnapshot(AppState.lang);
     const isToday = moment(day).isSame(moment(), 'day');
-    return isToday ? 'Heute' : moment(day).locale('de').format('ll');
+    return isToday ? generalLang.today : moment(day).locale(this.translate.currentLang).format('ll');
   }
 
   public isCheckIn(type: TimelineEventType): boolean {

@@ -1,9 +1,12 @@
+import { Store } from '@ngxs/store';
+import { TranslateService } from '@ngx-translate/core';
 import { ContactSelectComponent } from './../../contact-select/contact-select.component';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TimelineEvent, TransportType, TimelineEventType } from 'src/app/core/models/timeline-event';
 import { FormGroup, FormControl, Validators, NgModel } from '@angular/forms';
 import * as moment from 'moment';
 import { ModalController } from '@ionic/angular';
+import { AppState } from 'src/app/+state/app.state';
 
 @Component({
   selector: 'app-contact-form',
@@ -16,14 +19,19 @@ export class ContactFormComponent implements OnInit {
 
   public contactFormGroup: FormGroup;
   public transportTypes = TransportType;
+  private contactPlaceholderDefault: string;
 
-  constructor(public modalController: ModalController) {}
+  constructor(
+    public modalController: ModalController,
+    private translate: TranslateService,
+    private store: Store) { }
 
   ngOnInit() {
     this.contactFormGroup = new FormGroup({
       from: new FormControl('', Validators.required),
       contacts: new FormControl('', Validators.required),
     });
+    this.translate.get('addActivity.forms.contact.contactPlaceholder').toPromise().then(text => this.contactPlaceholderDefault = text);
   }
 
   async showContactSelect() {
@@ -36,7 +44,7 @@ export class ContactFormComponent implements OnInit {
     });
     return await modal.present();
   }
-  
+
   public submitForm(): void {
     if (this.contactFormGroup.valid) {
       const newEvent = this.contactFormGroup.value as TimelineEvent;
@@ -50,12 +58,13 @@ export class ContactFormComponent implements OnInit {
 
   public getContactText(): string {
     const contactFieldValue = this.contactFormGroup.value.contacts;
-    return contactFieldValue.length > 0 
-    ? `${contactFieldValue.length} ${this.getContactTextVariant(contactFieldValue.length)}`
-    : 'Kontakte auswählen';
+    return contactFieldValue.length > 0
+      ? `${contactFieldValue.length} ${this.getContactTextVariant(contactFieldValue.length)}`
+      : this.contactPlaceholderDefault;
   }
 
   private getContactTextVariant(length): string {
-    return length > 1 ? 'Kontakte' : 'Kontakt';
+    const generalLang = this.store.selectSnapshot(AppState.lang);
+    return length > 1 ? generalLang.plrContact : generalLang.sngContact;
   }
 }

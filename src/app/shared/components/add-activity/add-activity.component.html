@@ -1,19 +1,19 @@
-<app-bottom-sheet #bottomSheet title="Aktivität erfassen" class="add-activity" (closed)="handleSheetClosed()">
+<app-bottom-sheet #bottomSheet [title]="'addActivity.title' | translate" class="add-activity" (closed)="handleSheetClosed()">
   <ion-grid class="m-b-20">
     <ion-row>
       <ion-col class="add-activity__disease" (click)="diseaseDetected()">
         <ion-icon name="fitness-outline"></ion-icon>
-        <span>Krankheit festgestellt</span>
+        <span>{{'addActivity.disease' | translate}}</span>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="6" class="add-activity__check-in" (click)="checkIn()">
         <ion-icon name="home-outline"></ion-icon>
-        <span>Check In</span>
+        <span>{{'addActivity.checkIn' | translate}}</span>
       </ion-col>
       <ion-col size="6" class="add-activity__check-out" (click)="checkOut()">
         <ion-icon name="log-out-outline"></ion-icon>
-        <span>Check Out</span>
+        <span>{{'addActivity.checkOut' | translate}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -42,7 +42,7 @@
         [selected]="selectedTab === addActivityTabs.transport"
         (click)="selectTab(addActivityTabs.transport)">
           <ion-icon name="car-outline"></ion-icon>
-          <ion-label>Unterwegs</ion-label>
+          <ion-label>{{'addActivity.tabs.transport' | translate}}</ion-label>
         </ion-tab-button>
     
         <ion-tab-button 
@@ -50,7 +50,7 @@
         [selected]="selectedTab === addActivityTabs.contact" 
         (click)="selectTab(addActivityTabs.contact)">
           <ion-icon name="person-outline"></ion-icon>
-          <ion-label>Kontakt</ion-label>
+          <ion-label>{{'addActivity.tabs.contact' | translate}}</ion-label>
         </ion-tab-button>
     
         <ion-tab-button 
@@ -58,7 +58,7 @@
         [selected]="selectedTab === addActivityTabs.note"
         (click)="selectTab(addActivityTabs.note)">
           <ion-icon name="pencil-sharp"></ion-icon>
-          <ion-label>Notiz</ion-label>
+          <ion-label>{{'addActivity.tabs.note' | translate}}</ion-label>
         </ion-tab-button>
     
         <ion-tab-button 
@@ -66,7 +66,7 @@
         [selected]="selectedTab === addActivityTabs.activity"
         (click)="selectTab(addActivityTabs.activity)">
           <ion-icon name="analytics"></ion-icon>
-          <ion-label>Aktivität</ion-label>
+          <ion-label>{{'addActivity.tabs.activity' | translate}}</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
   </div>

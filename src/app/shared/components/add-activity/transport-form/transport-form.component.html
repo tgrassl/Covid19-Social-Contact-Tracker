@@ -1,31 +1,27 @@
 <form [formGroup]="transportFormGroup">
   <ion-item>
-    <ion-label position="stacked">Wie viele Mitfahrer?</ion-label>
-    <ion-input type="number" min="0" placeholder="Anzahl indirekter Kontakte" formControlName="indirectContacts"></ion-input>
+    <ion-label position="stacked">{{'addActivity.forms.transport.passengerTitle' | translate}}</ion-label>
+    <ion-input type="number" min="0" [placeholder]="'addActivity.forms.transport.passengerPlaceholder' | translate"
+      formControlName="indirectContacts"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Transportmittel</ion-label>
-    <ion-select placeholder="Auswählen" formControlName="transportType" okText="Ok" cancelText="Abbrechen">
-      <ion-select-option [value]="type.value" *ngFor="let type of transportTypes | keyvalue">{{type.value}}</ion-select-option>
+    <ion-label>{{'addActivity.forms.transport.type' | translate}}</ion-label>
+    <ion-select [placeholder]="'selectPlaceholder' | translate" formControlName="transportType"
+      [okText]="'okText' | translate" [cancelText]="'cancelText' | translate">
+      <ion-select-option [value]="type.value" *ngFor="let type of transportTypes | keyvalue">{{'general.transportTypes.' + type.value | translate }}
+      </ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>Von</ion-label>
-    <ion-datetime 
-    displayFormat="HH:mm"
-    placeholder="Zeit wählen" 
-    cancelText="Abbrechen" 
-    doneText="Fertig" formControlName="from"></ion-datetime>
+    <ion-label>{{'addActivity.forms.transport.from' | translate}}</ion-label>
+    <ion-datetime displayFormat="HH:mm" [placeholder]="'timePlaceholder' | translate" [cancelText]="'cancelText' | translate"
+    [doneText]="'doneText' | translate" formControlName="from"></ion-datetime>
   </ion-item>
   <ion-item>
-    <ion-label>Bis</ion-label>
-    <ion-datetime 
-    displayFormat="HH:mm" 
-    placeholder="Zeit wählen" 
-    cancelText="Abbrechen"
-    formControlName="to"
-    doneText="Fertig"></ion-datetime>
+    <ion-label>{{'addActivity.forms.transport.to' | translate}}</ion-label>
+    <ion-datetime displayFormat="HH:mm" [placeholder]="'timePlaceholder' | translate" [cancelText]="'cancelText' | translate"
+      formControlName="to" [doneText]="'doneText' | translate"></ion-datetime>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="transportFormGroup.valid" (click)="submitForm()">

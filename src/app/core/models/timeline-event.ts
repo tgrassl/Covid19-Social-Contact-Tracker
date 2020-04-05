@@ -26,7 +26,7 @@ export enum TimelineEventType {
 }
 
 export enum TransportType {
-    bus = 'Bus',
-    train = 'Zug',
-    car = 'Auto'
+    bus = 'bus',
+    train = 'train',
+    car = 'car'
 }

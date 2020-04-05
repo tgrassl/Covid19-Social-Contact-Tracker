@@ -1,32 +1,33 @@
 <form [formGroup]="activityFormGroup">
   <ion-item class="m-b-10">
-    <ion-label position="stacked">Was hast du gemacht?</ion-label>
-    <ion-input type="text" placeholder="Beschreibung der Aktivität" formControlName="content"></ion-input>
+    <ion-label position="stacked">{{'addActivity.forms.activity.desc' | translate}}</ion-label>
+    <ion-input type="text" [placeholder]="'addActivity.forms.activity.descPlaceholder' | translate" formControlName="content"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Wie viele Pers. waren in der Nähe?</ion-label>
-    <ion-input type="number" min="0" placeholder="Anzahl indirekter Kontakte" formControlName="indirectContacts"></ion-input>
+    <ion-label position="stacked">{{'addActivity.forms.activity.contactAmount' | translate}}</ion-label>
+    <ion-input type="number" min="0" [placeholder]="'addActivity.forms.activity.contactPlaceholder' | translate" formControlName="indirectContacts"></ion-input>
   </ion-item>
   <!-- <ion-item>
     <ion-label position="stacked">Wie viele Pers. unter 1 Meter Abstand?</ion-label>
     <ion-input type="number" min="0" placeholder="Anzahl direkter Kontakte" formControlName="directContacts"></ion-input>
   </ion-item> -->
   <ion-item>
-    <ion-label>Von</ion-label>
+    <ion-label>{{'addActivity.forms.activity.from' | translate}}</ion-label>
     <ion-datetime 
     displayFormat="HH:mm"
-    placeholder="Zeit wählen" 
-    cancelText="Abbrechen" 
-    doneText="Fertig" formControlName="from"></ion-datetime>
+    [placeholder]="'timePlaceholder' | translate" 
+    [cancelText]="'cancelText' | translate" 
+    [doneText]="'doneText' | translate" 
+    formControlName="from"></ion-datetime>
   </ion-item>
   <ion-item>
-    <ion-label>Bis</ion-label>
+    <ion-label>{{'addActivity.forms.activity.to' | translate}}</ion-label>
     <ion-datetime 
     displayFormat="HH:mm" 
-    placeholder="Zeit wählen" 
-    cancelText="Abbrechen"
-    formControlName="to"
-    doneText="Fertig"></ion-datetime>
+    [placeholder]="'timePlaceholder' | translate" 
+    [cancelText]="'cancelText' | translate" 
+    [doneText]="'doneText' | translate" 
+    formControlName="to"></ion-datetime>
   </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="activityFormGroup.valid" (click)="submitForm()">

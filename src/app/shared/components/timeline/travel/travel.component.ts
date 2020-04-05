@@ -1,5 +1,7 @@
+import { Component, Input } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { AppState } from 'src/app/+state/app.state';
 import { TimelineEvent } from 'src/app/core/models/timeline-event';
-import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-travel',
@@ -9,6 +11,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TravelComponent {
 
   @Input() event: TimelineEvent;
-  
-  constructor() { }
+
+  constructor(private store: Store) { }
+
+  public getTransportTypeName(transportType): string {
+    const types = this.store.selectSnapshot(AppState.lang).transportTypes;
+    return types[transportType];
+  }
 }

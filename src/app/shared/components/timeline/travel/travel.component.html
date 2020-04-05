@@ -1,6 +1,6 @@
 <div class="timeline__content timeline__content--grey travel">
   <div class="travel__title" 
-  [innerHTML]="'timeline.travel.title' | translate:{type: event.transportType}"></div>
+  [innerHTML]="'timeline.travel.title' | translate:{type: (getTransportTypeName(event.transportType))}"></div>
   <div class="travel__time">
     <ion-icon name="time"></ion-icon>
     <span [innerHTML]="'timeline.travel.time' | translate:{from: event.from, to: event.to}"></span>
