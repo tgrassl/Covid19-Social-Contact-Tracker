@@ -13,7 +13,7 @@ Demo for iOS follows.
 
 ## Target
 Now my Covid-19 test is positive... but who exactly have I been seeing the last 14 days? 
-The Social Contact Tracker allows you to track activities and to notify direct contacts when illness occurs. 
+The Social Contact Tracker allows you to track activities and notify direct contacts when illness occurs. 
 
 ## Background
 How can an affected person (tested positive or suspected) inform the contacts of the last 14 days? Example: I took a bus from A to B last week. I don't even know at what time. Or: When did I meet with X or Y last Tuesday?
