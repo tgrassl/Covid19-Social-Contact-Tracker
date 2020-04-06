@@ -46,6 +46,7 @@
         <splash density="port-xhdpi" src="resources\android\splash\drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources\android\splash\drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources\android\splash\drawable-port-xxxhdpi-screen.png" />
+        <splash density="xxhdpi" src="resources\android\splash\drawable-land-xxhdpi-screen.png" />
     </platform>
     <platform name="ios">
         <edit-config file="*-Info.plist" mode="merge" target="NSContactsUsageDescription">
