@@ -16,7 +16,7 @@ export interface EntityStateModel {
 @State<EntityStateModel>({
   name: 'Entity',
   defaults: {
-    introCompleted: true,
+    introCompleted: false,
     indirectContacts: 0,
     medicalStatus: [],
     directContacts: [],
