@@ -18,7 +18,7 @@ The Social Contact Tracker allows you to track activities and notify direct cont
 ## Background
 How can an affected person (tested positive or suspected) inform the contacts of the last 14 days? Example: I took a bus from A to B last week. I don't even know at what time. Or: When did I meet with X or Y last Tuesday?
 
-**The app was designed and developed by me within 48h for the [WirVsVirusHackathon](https://wirvsvirushackathon.org/).
+**The app was designed and developed by me within 48h for the [WirVsVirusHackathon](https://wirvsvirushackathon.org/).**
 
 The submission for it is on [DevPost](https://devpost.com/software/social-contact-tracking-corona-tagebuch).
 
