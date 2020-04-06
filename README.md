@@ -4,10 +4,12 @@
   <img src="https://i.ibb.co/ZzG24xB/Logo-Projekt-01.png" width="300px" height="auto">
 </a>
 
+Language [EN](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/blob/master/README-EN.md) | [DE](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/blob/master/README.md)
+
 ## Demo
 Android:
-[Android-APK Version-1.0.1](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
-oder von [Github Releases V-1.0.1](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.1)
+[Android-APK](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
+oder von [Github Releases](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.1)
 
 Demo für iOS folgt.
 
