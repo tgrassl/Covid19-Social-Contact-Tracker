@@ -9,7 +9,7 @@ Language [EN](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/blob/mas
 ## 📱 Demo
 Android:
 [Android-APK](https://drive.google.com/open?id=1yHNAtayV3Q0zx_YLJMP8LQunQYg8Rd7J)
-oder von [Github Releases](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases/tag/1.0.1)
+oder von [Github Releases](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/releases)
 
 Demo für iOS folgt.
 
