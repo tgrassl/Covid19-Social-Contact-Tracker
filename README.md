@@ -1,7 +1,7 @@
-![](https://i.ibb.co/TvcGSNx/github.png)
+![](/preview.png)
 
 <a href="https://wirvsvirushackathon.org/">
-  <img src="https://i.ibb.co/ZzG24xB/Logo-Projekt-01.png" width="300px" height="auto">
+  <img src="/project_logo.png" width="300px" height="auto">
 </a>
 
 Language [EN](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/blob/master/README-EN.md) | [DE](https://github.com/tgrassl/Covid19-Social-Contact-Tracker/blob/master/README.md)
